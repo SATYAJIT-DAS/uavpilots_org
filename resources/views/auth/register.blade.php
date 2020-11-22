@@ -1,6 +1,10 @@
-{{-- @extends('layouts.app') --}}
+
 @extends('layouts.app')
+
 @section('content')
+<script src="{{ asset('js/parslyException.js') }}"></script>
+
+
 <div class="flex">
   <div class="w-xl w-auto-sm mx-auto py-5">
     <div class="p-4 d-flex flex-column h-100">
@@ -41,31 +45,93 @@
             <div class="form-row">
                 <div class="form-group col-sm-6">
                     <label for="">First Name</label>
-                    <input type="text" class="form-control" name="first_name" >
+                    <input type="text" class="form-control" name="first_name" required>
                 </div>
                 <div class="form-group col-sm-6">
                     <label for="">Last Name</label>
-                    <input type="text" class="form-control"  name="last_name" >
+                    <input type="text" class="form-control"  name="last_name" required>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-sm-6">
                     <label for="">Country</label>
-                    <input type="text" class="form-control"  name="country" >
+                    <input type="text" class="form-control"  name="country" required>
                 </div>
                 <div class="form-group col-sm-6">
                     <label for="">State</label>
-                    <input type="text" class="form-control"  name="state" >
+                    <input type="text" class="form-control"  name="state" required>
                 </div>
             </div>
 
-            <div >
+            <div class="form-row mb-3">
                 <label for="">Industry</label>
-                <input type="text" class="form-control"  name="state" >
+                <input type="text" class="form-control"  name="industry" required>
             </div>
 
-            <button type="submit" class="btn btn-primary mb-4"> {{ __('Login') }}</button>
+            <!-- <div class="form-row mb-3">
+                <label for="">Industry</label>
+                <input type="file" class="form-control"  name="industry" required>
+            </div> -->
+
+
+            <div class="form-row mb-3">
+                
+
+
+              <div class="custom-file mb-3 form-control">
+                <label class="custom-file-label" for="customFile">Choose file</label>
+                <input type="file" class="custom-file-input form-control" id="customFile" name="filename" required data-parsley-max-file-size="42">
+                
+              </div>
+
+            </div>
+
+
+
+
+
+<!--             <div class="form-row mb-3">
+                <label for="">Upload your photo:</label>
+                <div class="input-group mb-3">
+                  <div class="custom-file">
+                      <input type="file" class="custom-file-input form-control" id="inputGroupFile02" required data-parsley-max-file-size="42">
+                      <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                  </div>
+                  <div class="input-group-append">
+                      <span class="input-group-text" id="">Upload</span>
+                  </div>
+              </div>
+            </div> -->
+
+            <div class="form-row mb-4">
+                    <label for="">Your Facebook Profile Link(optional)</label>
+                    <input type="url" class="form-control"  class="form-control" name="fb_link" data-parsley-type="url">
+
+            </div>
+
+            <div class="form-row mb-4">
+
+                    <label for="">Your Twitter Profile Link(optional)</label>
+                    <input type="url" class="form-control"  name="twitter_link" data-parsley-type="url">
+            </div>
+
+            <div class="form-row mb-4">
+
+                    <label for="">Your Youtube Profile Link(optional)</label>
+                    <input type="url" class="form-control"  name="youtube_link" data-parsley-type="url">
+            </div>
+
+            <div class="form-row mb-4">
+
+                    <label for="">Your Instagram Profile Link(optional)</label>
+                    <input type="url" class="form-control"  name="instagram_link" data-parsley-type="url">
+            </div>
+
+
+
+
+            <button type="submit" class="btn btn-primary mb-4"> {{ __('Sign Up') }}</button>
             {{-- <div>Do not have an account?
               <a href="signup.html" class="text-primary">Sign up</a>
             </div> --}}
@@ -75,4 +141,7 @@
     </div>
   </div>
 </div>
+
+
 @endsection
+

@@ -26,5 +26,11 @@
 <script src="{{asset('js/admin/script.js')}}"></script>
 @endif
 <script src="{{ asset('js/frontend/script.js') }}"></script>
+
+<!-- parsly file uploading problems  -->
+
+
     </body>
 </html>
+
+
