@@ -26,5 +26,12 @@
 <script src="{{asset('js/admin/script.js')}}"></script>
 @endif
 <script src="{{ asset('js/frontend/script.js') }}"></script>
+@if(Request::is('/'))
+<script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
+<script src = "https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js" defer ></script>
+
+ {{$dataTable->scripts()}}
+@endif
+
     </body>
 </html>

@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\DataTables\UserListDataTable;
 
 class FrontendController extends Controller
 {
     //
-    public function homepage()
+    public function homepage(UserListDataTable $dataTable)
     {
-        return view('layouts.frontend.homepage');
+        return $dataTable->render('layouts.frontend.homepage');
+    }
+    public function test(UserListDataTable $dataTable)
+    {
+        return $dataTable->render('test');
     }
 
     // blog for future

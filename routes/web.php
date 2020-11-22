@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', 'FrontendController@homepage')->name('homepage');
+Route::get('/test', 'FrontendController@test')->name('test');
+Route::group(['namespace' => 'Data'], function () {
+    Route::get('users/data', 'UsersDataController@getUsersData')->name('users.data');
+});
+
 // Route::get('/blog', 'FrontendController@blog')->name('blog');
 // Route::get('/singlepage', 'FrontendController@singlepage')->name('singlepage');
 Auth::routes();
