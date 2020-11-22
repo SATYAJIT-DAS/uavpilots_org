@@ -19,40 +19,50 @@
     <div class="card">
       <div id="content-body">
         <div class="p-3 p-md-5">
-          <h5>Welcome back</h5>
+          <h5>Welcome </h5>
           <p>
-            <small class="text-muted">Login to manage your account</small>
+          <small class="text-muted">Register to {{config('app.name')}}</small>
           </p>
           <x-alert/>
-          <form class="" role="form" action="{{ route('register') }}" method="POST">
+          <form class="" role="form" action="{{ route('register') }}" method="POST" data-plugin="parsley" data-option="{}">
             @csrf
             <div class="form-group">
-              <label>Email</label>
-              <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-              @error('email')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
-              @enderror
+                <label>Email</label>
+                <input type="email" class="form-control" required>
             </div>
             <div class="form-group">
-              <label>Password</label>
-              <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                <label>Enter password</label>
+                <input type="password" class="form-control" required id="pwd">
+            </div>
+            <div class="form-group">
+                <label>Confirm password</label>
+                <input type="password" class="form-control" data-parsley-equalto="#pwd" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <label for="">First Name</label>
+                    <input type="text" class="form-control" name="first_name" >
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="">Last Name</label>
+                    <input type="text" class="form-control"  name="last_name" >
+                </div>
+            </div>
 
-              @error('password')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
-              @enderror
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <label for="">Country</label>
+                    <input type="text" class="form-control"  name="country" >
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="">State</label>
+                    <input type="text" class="form-control"  name="state" >
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="">First Name</label>
-                <input type="text" name="first_name" id="first_name">
-            </div>
-            <div class="form-group">
-                <label for="">Last Name</label>
-                <input type="text" name="first_name" id="first_name">
+            <div >
+                <label for="">Industry</label>
+                <input type="text" class="form-control"  name="state" >
             </div>
 
             <button type="submit" class="btn btn-primary mb-4"> {{ __('Login') }}</button>
