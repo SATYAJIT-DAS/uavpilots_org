@@ -1,0 +1,84 @@
+
+/* My custom css  */
+
+.app-body-inner {
+  display: flex;
+}
+
+.basic-sidemenu-outer {
+  width: 200px;
+  height: 100vh;
+  background: #f5f5f6;
+  border-right: 0.9px solid rgb(219, 219, 219);
+}
+
+.basic-sidemenu-underlay {
+  position: fixed;
+  z-index: -100;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.582);
+  display: none;
+}
+
+
+.extra2 {
+  width: calc(100vw - 203px);
+}
+
+.menu-icon1 {
+	width: 48px;
+	height: 31px;
+	padding: 5px 10px 5px 10px;
+	margin: 0px 0px 0px 0px;
+}
+
+.basic-logotop {
+  display: flex;
+  padding: 10px 10px 10px 10px;
+  color: rgb(40, 107, 231);
+}
+
+.basic-logotop:hover {
+  color: blue;
+}
+
+.basik-logoicon {
+  width: 30px;
+  height: 30px;
+  padding: 0px 0px 0px 10px;
+  box-sizing: content-box;
+}
+
+.basik-logotext {
+	font-size: 18px;
+	font-weight: bold;
+	padding: 3px 5px 5px 14px;
+	margin: 0px;
+}
+
+@media (max-width: 991px) {
+
+  .extra2 {
+    width: auto;
+  }
+
+  .basic-sidemenu-outer {
+    position: fixed;
+    z-index: 1000;
+    top: 0px;
+    left: 0px;
+    transition-duration: 0.4s;
+    margin-left: -200px;
+  }
+}
+
+.o-basik {
+  margin-left: 0px;
+}
+
+.o-basik-underlay {
+  z-index: 100;
+  display: block;
+}
+
