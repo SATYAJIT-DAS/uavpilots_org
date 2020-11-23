@@ -14,6 +14,10 @@
 <script src="{{ asset('js/basik_js/lazyload.js') }}"></script>
 <script src="{{ asset('js/basik_js/plugin.js') }}"></script>
 
+
+
+
+
 <!-- feathericon -->
 <script src="{{ asset('libs/feather-icons/dist/feather.min.js') }}"></script>
 <script src="{{ asset('js/basik_js/plugins/feathericon.js') }}"></script>
@@ -27,7 +31,13 @@
 @endif
 <script src="{{ asset('js/frontend/script.js') }}"></script>
 
-<!-- parsly file uploading problems  -->
+@if(Request::is('/'))
+<script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
+<script src = "https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js" defer ></script>
+
+ {{$dataTable->scripts()}}
+@endif
+
 
 
     </body>

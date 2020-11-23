@@ -3,3 +3,5 @@
 @yield('content')
 @include('layouts.navigation.frontendfooter')
 @include('layouts.global_layout.footer')
+
+

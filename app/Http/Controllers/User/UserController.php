@@ -25,4 +25,10 @@ class UserController extends Controller
     {
         return view('layouts.user.home');
     }
+
+
+    public static  function checkusername($username)
+    {
+        return "available";
+    }
 }

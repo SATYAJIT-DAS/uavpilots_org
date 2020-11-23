@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+// use App\Http\Controllers\User\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,12 +16,22 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', 'FrontendController@homepage')->name('homepage');
+Route::get('/test', 'FrontendController@test')->name('test');
+Route::group(['namespace' => 'Data'], function () {
+    Route::get('users/data', 'UsersDataController@getUsersData')->name('users.data');
+});
+
 // Route::get('/blog', 'FrontendController@blog')->name('blog');
 // Route::get('/singlepage', 'FrontendController@singlepage')->name('singlepage');
 Auth::routes();
 Route::group(['middleware' => 'auth', 'namespace' => 'User'], function () {
     Route::get('/home', 'UserController@index')->name('user.home');
+    
 });
+
+// Route::group(['namespace' => 'User'], function () {
+//     Route::post('/postajax', 'UserController@checkusername');
+// });
 
 Route::prefix('/admin')->namespace("Admin")->group(function () {
     Route::get('/', 'AdminController@loginView')->name('admin.login');
@@ -33,3 +45,8 @@ Route::prefix('/admin')->namespace("Admin")->group(function () {
         Route::get('logout', 'AdminController@logout')->name('admin.logout');
     });
 });
+
+
+Route::post('/postajax', 'AjaxController@checkusername');
+
+

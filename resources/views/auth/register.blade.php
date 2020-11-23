@@ -1,8 +1,12 @@
 
+
 @extends('layouts.app')
 
+
 @section('content')
-<script src="{{ asset('js/parslyException.js') }}"></script>
+
+
+
 
 
 <div class="flex">
@@ -28,45 +32,82 @@
           <small class="text-muted">Register to {{config('app.name')}}</small>
           </p>
           <x-alert/>
-          <form class="" role="form" action="{{ route('register') }}" method="POST" data-plugin="parsley" data-option="{}">
+          <form role="form" action="{{ route('register') }}" method="POST" data-plugin="parsley" data-option="{}">
             @csrf
             <div class="form-group">
-                <label>Email</label>
-                <input type="email" class="form-control" required>
+                <label>Email:</label>
+                <input type="email" name="email" class="form-control" required >
             </div>
             <div class="form-group">
-                <label>Enter password</label>
-                <input type="password" class="form-control" required id="pwd">
+                <label>Enter password:</label>
+                <input type="password" name="password" class="form-control" required id="pwd">
             </div>
             <div class="form-group">
-                <label>Confirm password</label>
-                <input type="password" class="form-control" data-parsley-equalto="#pwd" required>
+                <label>Confirm password:</label>
+                <input type="password" name="password_confirmation" class="form-control" data-parsley-equalto="#pwd" required>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-6">
-                    <label for="">First Name</label>
+                    <label for="">First Name:</label>
                     <input type="text" class="form-control" name="first_name" required>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="">Last Name</label>
+                    <label for="">Last Name:</label>
                     <input type="text" class="form-control"  name="last_name" required>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-sm-6">
-                    <label for="">Country</label>
+                    <label for="">Country:</label>
                     <input type="text" class="form-control"  name="country" required>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="">State</label>
+                    <label for="">State:</label>
                     <input type="text" class="form-control"  name="state" required>
                 </div>
             </div>
 
             <div class="form-row mb-3">
-                <label for="">Industry</label>
-                <input type="text" class="form-control"  name="industry" required>
+                <label for="">Industry:</label>
+                <!-- <input type="text" class="form-control"  name="industry" required> -->
+
+                  <div class="input-group mb-3">
+
+                    <select class="custom-select" id="industry" name="industry" required>
+                      <option selected value="">Choose...</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+
+            </div>
+
+            <div class="form-group">
+                <label>Username:</label>
+                <input type="text" name="username" class="form-control usernamefield" required data-parsley-usernamevalidator data-parsley-trigger="focusout">
+
+                <!-- <input type="text" id="email_address" class="form-control input-lg" required placeholder="Enter Email ID" data-parsley-trigger="focusout" data-parsley-checkemail data-parsley-checkemail-message="Email Address already Exists" /> -->
+               <!--  <p class="username_existence"></p> -->
+
+                <!-- <input type="tel" name="card-code" id="card-code" maxlength="4" required="" data-parsley-required="true" data-parsley-required-message="Please enter the cvv" data-parsley-type="number" data-parsley-type-message="Please enter a valid cvv" data-parsley-cardcode="true" data-parsley-cardcode-message="Please ensure you are entering the correct cvv." data-parsley-id="65"> -->
+
+            </div>
+
+            
+
+
+            <!-- <div class="form-row mb-3">
+                <label for="">Description:</label>
+                <input type="textarea" class="form-control"  name="description" rows="4" cols="50" required>
+            </div> -->
+
+            <div class="form-row mb-3">
+              <!-- <div class="form-group"> -->
+                <label for="description">Description:</label>
+                <textarea class="form-control" id="description" rows="3" name="description" required></textarea>
+              <!-- </div> -->
             </div>
 
             <!-- <div class="form-row mb-3">
@@ -74,14 +115,14 @@
                 <input type="file" class="form-control"  name="industry" required>
             </div> -->
 
-
+ 
             <div class="form-row mb-3">
                 
-
+              <label>Upload Photo:</label>
 
               <div class="custom-file mb-3 form-control">
-                <label class="custom-file-label" for="customFile">Choose file</label>
-                <input type="file" class="custom-file-input form-control" id="customFile" name="filename" required data-parsley-max-file-size="42">
+                <label class="custom-file-label photouploadinput" for="customFile">Choose file</label>
+                <input type="file" class="custom-file-input form-control photouploadinput" id="customFile" name="filename" required data-parsley-max-file-size="6">
                 
               </div>
 
@@ -141,6 +182,7 @@
     </div>
   </div>
 </div>
+
 
 
 @endsection
