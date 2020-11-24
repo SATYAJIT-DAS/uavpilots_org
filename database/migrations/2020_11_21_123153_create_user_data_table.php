@@ -21,6 +21,7 @@ class CreateUserDataTable extends Migration
                 ->onDelete('cascade');
             $table->string('first_name', 100);
             $table->string('last_name', 100);
+            $table->string('username')->unique();
             $table->longText('description');
             $table->string('state', 255);
             $table->string('country', 255);

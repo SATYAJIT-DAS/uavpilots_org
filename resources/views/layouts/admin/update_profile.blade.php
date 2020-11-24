@@ -1,3 +1,3 @@
 <h1>
-   {{dd($adminDetails)}}
+   {{dd($userdata)}}
 </h1>

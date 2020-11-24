@@ -111,15 +111,15 @@ class AdminController extends Controller
 
     public function UpdateUser($id)
     {
-        $usersdata = $this->userDetails($id);
+        $userdata = $this->userDetails($id);
         $adminDetails = $this->getAdminDetails();
-        return view('layouts.admin.update_profile', compact('usersdata', 'adminDetails'));
+        return view('layouts.admin.update_profile', compact('userdata', 'adminDetails'));
     }
 
     protected function userDetails($id)
     {
-        $usersdata = DB::table('user_data')->where('id', $id)->first();
-        return $usersdata;
+        $userdata = DB::table('user_data')->where('user_id', $id)->first();
+        return $userdata;
     }
     public function approveUser()
     {

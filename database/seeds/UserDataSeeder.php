@@ -17,9 +17,10 @@ class UserDataSeeder extends Seeder
         for ($i = 0; $i < 100; $i++) {
             $records[$i] = [
                 'user_id' => $i + 1,
+                'username' => $faker->unique()->firstName,
                 'first_name' => $faker->firstName,
                 'last_name' => $faker->lastName,
-                'description' => $faker->text(10),
+                'description' => $faker->text(200),
                 'state' => $faker->state,
                 'country' => $faker->country,
                 'industry' => $faker->company,

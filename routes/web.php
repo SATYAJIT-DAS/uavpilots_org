@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'FrontendController@homepage')->name('homepage');
 Route::get('/userdata', 'FrontendController@getBasicData')->name('userdata');
-Route::get('/profile', 'FrontendController@homepage')->name('profile');
+Route::get('/profile/{slug}', 'FrontendController@singleUser')->name('profile');
 Route::post('/check-user-name-availability', 'AjaxController@checkusername');
 Auth::routes();
 Route::group(['middleware' => 'auth', 'namespace' => 'User'], function () {

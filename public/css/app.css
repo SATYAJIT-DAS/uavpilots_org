@@ -384,6 +384,10 @@ div.dt-buttons a.btn.processing:after {
   background-color: #fff;
 }
 
+table {
+  width: 100% !important;
+}
+
 .navigation {
   width: 100%;
 }
@@ -432,6 +436,14 @@ div.dt-buttons a.btn.processing:after {
   width: 0;
   border: 8px solid transparent;
   border-bottom-color: #cecece;
+}
+
+.font-40 {
+  font-size: 40px;
+}
+
+.font-22 {
+  font-size: 22px;
 }
 
 /*!

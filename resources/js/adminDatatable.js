@@ -39,43 +39,6 @@ $(function() {
                 });
         }
     });
-
-    $(document).on("click", ".approve-button", function() {
-        var userid = parseInt($(this).attr("id"));
-        $.ajaxSetup({
-            headers: {
-                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
-            }
-        });
-        $.ajax({
-            type: "POST",
-            url: "approve-user",
-            data: { approve_id: userid },
-            success: function(data) {
-                pendingtable.ajax.reload();
-            }
-        });
-    });
-    $(document).on("click", ".delete-button", function() {
-        var userid = parseInt($(this).attr("id"));
-        var confirmation = confirm("Are you sure to Delete the data");
-        if (confirmation == true) {
-            $.ajaxSetup({
-                headers: {
-                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
-                }
-            });
-            $.ajax({
-                type: "POST",
-                url: "remove-user",
-                data: { delete_id: userid },
-                success: function(data) {
-                    pendingtable.ajax.reload();
-                }
-            });
-        }
-    });
-
     var userListtable = $(".active-user-data").DataTable({
         processing: true,
         serverSide: true,
@@ -114,6 +77,42 @@ $(function() {
                         '<option value="' + d + '">' + d + "</option>"
                     );
                 });
+        }
+    });
+    $(document).on("click", ".approve-button", function() {
+        var userid = parseInt($(this).attr("id"));
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+            }
+        });
+        $.ajax({
+            type: "POST",
+            url: "approve-user",
+            data: { approve_id: userid },
+            success: function(data) {
+                pendingtable.ajax.reload();
+                userListtable.ajax.reload();
+            }
+        });
+    });
+    $(document).on("click", ".delete-button", function() {
+        var userid = parseInt($(this).attr("id"));
+        var confirmation = confirm("Are you sure to Delete the data");
+        if (confirmation == true) {
+            $.ajaxSetup({
+                headers: {
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+                }
+            });
+            $.ajax({
+                type: "POST",
+                url: "remove-user",
+                data: { delete_id: userid },
+                success: function(data) {
+                    pendingtable.ajax.reload();
+                }
+            });
         }
     });
     $(document).on("click", ".delete-active-user-button", function() {

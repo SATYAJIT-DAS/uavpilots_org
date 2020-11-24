@@ -23,7 +23,7 @@
           <small class="text-muted">Register to {{config('app.name')}}</small>
           </p>
           <x-alert/>
-          <form role="form" action="{{ route('register') }}" method="POST" data-plugin="parsley" data-option="{}">
+          <form role="form" action="{{ route('register') }}" method="POST" enctype="multipart/form-data"  data-plugin="parsley" data-option="{}">
             @csrf
             <div class="form-group">
                 <label>Email:</label>

@@ -4,6 +4,9 @@
 .bg-white{
     background-color: $white;
 }
+table{
+    width: 100%!important;
+}
 .navigation{
     width: 100%;
     .navbar-brand{
@@ -51,3 +54,9 @@
     }
 }
 
+.font-40{
+    font-size: 40px;
+}
+.font-22{
+    font-size: 22px;
+}

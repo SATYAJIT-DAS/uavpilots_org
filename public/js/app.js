@@ -134,46 +134,6 @@ $(function () {
       });
     }
   });
-  $(document).on("click", ".approve-button", function () {
-    var userid = parseInt($(this).attr("id"));
-    $.ajaxSetup({
-      headers: {
-        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
-      }
-    });
-    $.ajax({
-      type: "POST",
-      url: "approve-user",
-      data: {
-        approve_id: userid
-      },
-      success: function success(data) {
-        pendingtable.ajax.reload();
-      }
-    });
-  });
-  $(document).on("click", ".delete-button", function () {
-    var userid = parseInt($(this).attr("id"));
-    var confirmation = confirm("Are you sure to Delete the data");
-
-    if (confirmation == true) {
-      $.ajaxSetup({
-        headers: {
-          "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
-        }
-      });
-      $.ajax({
-        type: "POST",
-        url: "remove-user",
-        data: {
-          delete_id: userid
-        },
-        success: function success(data) {
-          pendingtable.ajax.reload();
-        }
-      });
-    }
-  });
   var userListtable = $(".active-user-data").DataTable({
     processing: true,
     serverSide: true,
@@ -211,6 +171,47 @@ $(function () {
       });
       column.data().unique().sort(function (d, j) {
         select.append('<option value="' + d + '">' + d + "</option>");
+      });
+    }
+  });
+  $(document).on("click", ".approve-button", function () {
+    var userid = parseInt($(this).attr("id"));
+    $.ajaxSetup({
+      headers: {
+        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+      }
+    });
+    $.ajax({
+      type: "POST",
+      url: "approve-user",
+      data: {
+        approve_id: userid
+      },
+      success: function success(data) {
+        pendingtable.ajax.reload();
+        userListtable.ajax.reload();
+      }
+    });
+  });
+  $(document).on("click", ".delete-button", function () {
+    var userid = parseInt($(this).attr("id"));
+    var confirmation = confirm("Are you sure to Delete the data");
+
+    if (confirmation == true) {
+      $.ajaxSetup({
+        headers: {
+          "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+        }
+      });
+      $.ajax({
+        type: "POST",
+        url: "remove-user",
+        data: {
+          delete_id: userid
+        },
+        success: function success(data) {
+          pendingtable.ajax.reload();
+        }
       });
     }
   });
@@ -348,8 +349,8 @@ $(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/farabi/uavpilots_org/uavpilots_org/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/farabi/uavpilots_org/uavpilots_org/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\apps\xampp_2020\htdocs\Uavpilots_main\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\apps\xampp_2020\htdocs\Uavpilots_main\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
