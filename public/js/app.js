@@ -360,8 +360,9 @@ $(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\apps\xampp_2020\htdocs\Uavpilots_main\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\apps\xampp_2020\htdocs\Uavpilots_main\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/farabi/uavpilots_org/uavpilots_org/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/farabi/uavpilots_org/uavpilots_org/resources/sass/update-profile-picture.scss */"./resources/sass/update-profile-picture.scss");
+module.exports = __webpack_require__(/*! /home/farabi/uavpilots_org/uavpilots_org/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

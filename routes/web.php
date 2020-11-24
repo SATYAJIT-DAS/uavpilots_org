@@ -18,10 +18,17 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', 'FrontendController@homepage')->name('homepage');
 Route::get('/userdata', 'FrontendController@getBasicData')->name('userdata');
 Route::get('/profile/{slug}', 'FrontendController@singleUser')->name('profile');
+
+// Route::get('edit-profile/{id}', 'AdminController@UpdateUserView')->name('admin.updateuserview');
+
 Route::post('/check-user-name-availability', 'AjaxController@checkusername');
 Auth::routes();
 Route::group(['middleware' => 'auth', 'namespace' => 'User'], function () {
     Route::get('/home', 'UserController@index')->name('user.home');
+    Route::get('/edit-profile/{id}', 'UserController@editProfile')->name('user.editProfileView');
+
+    Route::post('edit-profile/{id}', 'UserController@UpdateProfilebyUser')->name('user.editProfile');
+
 });
 Route::prefix('/admin')->namespace("Admin")->group(function () {
     Route::get('/', 'AdminLoginController@loginView')->name('admin.login');
