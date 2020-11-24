@@ -22,6 +22,7 @@ class UserSeeder extends Seeder
                 'id' => $i + 1,
                 'email' => $faker->email,
                 'password' => $password,
+                'username' => $faker->unique()->firstName,
             ];
         }
         foreach ($records as $key => $record) {

@@ -18,10 +18,10 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', 'FrontendController@homepage')->name('homepage');
 Route::get('/userdata', 'FrontendController@getBasicData')->name('userdata');
 Route::get('/profile', 'FrontendController@homepage')->name('profile');
+Route::post('/check-user-name-availability', 'AjaxController@checkusername');
 Auth::routes();
 Route::group(['middleware' => 'auth', 'namespace' => 'User'], function () {
     Route::get('/home', 'UserController@index')->name('user.home');
-
 });
 Route::prefix('/admin')->namespace("Admin")->group(function () {
     Route::get('/', 'AdminLoginController@loginView')->name('admin.login');
@@ -40,6 +40,3 @@ Route::prefix('/admin')->namespace("Admin")->group(function () {
         Route::post('remove-user', 'AdminController@removeUser')->name('admin.deleteuser');
     });
 });
-
-
-Route::post('/postajax', 'AjaxController@checkusername');

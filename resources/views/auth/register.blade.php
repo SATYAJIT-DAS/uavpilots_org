@@ -1,14 +1,5 @@
-
-
 @extends('layouts.app')
-
-
 @section('content')
-
-
-
-
-
 <div class="flex">
   <div class="w-xl w-auto-sm mx-auto py-5">
     <div class="p-4 d-flex flex-column h-100">
@@ -70,120 +61,59 @@
 
             <div class="form-row mb-3">
                 <label for="">Industry:</label>
-                <!-- <input type="text" class="form-control"  name="industry" required> -->
-
                   <div class="input-group mb-3">
-
                     <select class="custom-select" id="industry" name="industry" required>
                       <option selected value="">Choose...</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                      <option value="car">Car racing</option>
+                      <option value="automobile">Automobile</option>
+                      <option value="photography">Photography</option>
                     </select>
                   </div>
 
             </div>
-
             <div class="form-group">
                 <label>Username:</label>
                 <input type="text" name="username" class="form-control usernamefield" required data-parsley-usernamevalidator data-parsley-trigger="focusout">
-
-                <!-- <input type="text" id="email_address" class="form-control input-lg" required placeholder="Enter Email ID" data-parsley-trigger="focusout" data-parsley-checkemail data-parsley-checkemail-message="Email Address already Exists" /> -->
-               <!--  <p class="username_existence"></p> -->
-
-                <!-- <input type="tel" name="card-code" id="card-code" maxlength="4" required="" data-parsley-required="true" data-parsley-required-message="Please enter the cvv" data-parsley-type="number" data-parsley-type-message="Please enter a valid cvv" data-parsley-cardcode="true" data-parsley-cardcode-message="Please ensure you are entering the correct cvv." data-parsley-id="65"> -->
-
             </div>
 
-            
-
-
-            <!-- <div class="form-row mb-3">
-                <label for="">Description:</label>
-                <input type="textarea" class="form-control"  name="description" rows="4" cols="50" required>
-            </div> -->
-
             <div class="form-row mb-3">
-              <!-- <div class="form-group"> -->
                 <label for="description">Description:</label>
                 <textarea class="form-control" id="description" rows="3" name="description" required></textarea>
-              <!-- </div> -->
             </div>
 
-            <!-- <div class="form-row mb-3">
-                <label for="">Industry</label>
-                <input type="file" class="form-control"  name="industry" required>
-            </div> -->
-
- 
             <div class="form-row mb-3">
-                
               <label>Upload Photo:</label>
-
               <div class="custom-file mb-3 form-control">
                 <label class="custom-file-label photouploadinput" for="customFile">Choose file</label>
                 <input type="file" class="custom-file-input form-control photouploadinput" id="customFile" name="filename" required data-parsley-max-file-size="6">
-                
               </div>
-
-            </div>
-
-
-
-
-
-<!--             <div class="form-row mb-3">
-                <label for="">Upload your photo:</label>
-                <div class="input-group mb-3">
-                  <div class="custom-file">
-                      <input type="file" class="custom-file-input form-control" id="inputGroupFile02" required data-parsley-max-file-size="42">
-                      <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
-                  </div>
-                  <div class="input-group-append">
-                      <span class="input-group-text" id="">Upload</span>
-                  </div>
-              </div>
-            </div> -->
-
-            <div class="form-row mb-4">
-                    <label for="">Your Facebook Profile Link(optional)</label>
-                    <input type="url" class="form-control"  class="form-control" name="fb_link" data-parsley-type="url">
-
             </div>
 
             <div class="form-row mb-4">
-
-                    <label for="">Your Twitter Profile Link(optional)</label>
-                    <input type="url" class="form-control"  name="twitter_link" data-parsley-type="url">
+                <label for="">Your Facebook Profile Link(optional)</label>
+                <input type="url" class="form-control"  class="form-control" name="fb_link" data-parsley-type="url">
             </div>
 
             <div class="form-row mb-4">
-
-                    <label for="">Your Youtube Profile Link(optional)</label>
-                    <input type="url" class="form-control"  name="youtube_link" data-parsley-type="url">
+                <label for="">Your Twitter Profile Link(optional)</label>
+                <input type="url" class="form-control"  name="twitter_link" data-parsley-type="url">
             </div>
 
             <div class="form-row mb-4">
-
-                    <label for="">Your Instagram Profile Link(optional)</label>
-                    <input type="url" class="form-control"  name="instagram_link" data-parsley-type="url">
+                <label for="">Your Youtube Profile Link(optional)</label>
+                <input type="url" class="form-control"  name="youtube_link" data-parsley-type="url">
             </div>
 
-
-
-
+            <div class="form-row mb-4">
+                <label for="">Your Instagram Profile Link(optional)</label>
+                <input type="url" class="form-control"  name="instagram_link" data-parsley-type="url">
+            </div>
             <button type="submit" class="btn btn-primary mb-4"> {{ __('Sign Up') }}</button>
-            {{-- <div>Do not have an account?
-              <a href="signup.html" class="text-primary">Sign up</a>
-            </div> --}}
           </form>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
 @endsection
 

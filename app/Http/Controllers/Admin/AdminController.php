@@ -75,7 +75,6 @@ class AdminController extends Controller
                     '<button type="button"  class="btn btn-danger my-2 delete-button"  id="' . $usersdata->id . '"> Delete</a>';
                 $action .= '<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">';
                 return $action;
-                // return
             })
             ->addColumn('link', function ($usersdata) {
                 $link = '<a href="' . route('profile') . '">' . $usersdata->country . '</a>';
@@ -100,7 +99,6 @@ class AdminController extends Controller
                     '<button type="button"  class="btn btn-danger my-1 delete-active-user-button "  id="' . $usersdata->id . '"> Delete</a>';
                 $action .= '<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">';
                 return $action;
-                // return
             })
             ->addColumn('link', function ($usersdata) {
                 $link = '<a href="' . route('profile') . '">' . $usersdata->country . '</a>';
@@ -113,8 +111,15 @@ class AdminController extends Controller
 
     public function UpdateUser($id)
     {
+        $usersdata = $this->userDetails($id);
+        $adminDetails = $this->getAdminDetails();
+        return view('layouts.admin.update_profile', compact('usersdata', 'adminDetails'));
+    }
+
+    protected function userDetails($id)
+    {
         $usersdata = DB::table('user_data')->where('id', $id)->first();
-        return view('layouts.admin.update_profile', compact('usersdata'));
+        return $usersdata;
     }
     public function approveUser()
     {
