@@ -77,7 +77,7 @@ class AdminController extends Controller
                 return $action;
             })
             ->addColumn('link', function ($usersdata) {
-                $link = '<a href="' . route('profile') . '">' . $usersdata->country . '</a>';
+                $link = '<a target="_blank" href="' .  route('profile', $usersdata->username) . '">' . $usersdata->username . '</a>';
                 return $link;
             })
             ->rawColumns(['link', 'action'])
@@ -101,7 +101,7 @@ class AdminController extends Controller
                 return $action;
             })
             ->addColumn('link', function ($usersdata) {
-                $link = '<a href="' . route('profile') . '">' . $usersdata->country . '</a>';
+                $link = '<a target="_blank" href="' .  route('profile', $usersdata->username) . '">' . $usersdata->username . '</a>';
                 return $link;
             })
             ->rawColumns(['link', 'action'])
@@ -116,9 +116,9 @@ class AdminController extends Controller
         return view('layouts.admin.update_profile', compact('userdata', 'adminDetails'));
     }
 
-    public function UpdateUser($id,Request $data)
+    public function UpdateUser($id, Request $data)
     {
-        
+
         $adminDetails = $this->getAdminDetails();
 
 
@@ -127,27 +127,27 @@ class AdminController extends Controller
             Admin::uploadimage($data->image);
 
             return back()->with('success', 'Image Upload successfully');
-
         } else {
 
             return back()->with('error', 'There was an error');
-
         }
 
 
 
         $update_status = UserData::where('user_id', $data->id)
-                    ->update(['image' => $data->image,
-                            'first_name' => $data->first_name,
-                            'last_name' => $data->last_name,
-                            'description' => $data->description,
-                            'state' => $data->state,
-                            'country' => $data->country,
-                            'industry' => $data->industry,
-                            'fb_link' => $data->fb_link,
-                            'twitter_link' => $data->twitter_link,
-                            'youtube_link' => $data->youtube_link,
-                            'instagram_link' => $data->instagram_link,]);
+            ->update([
+                'image' => $data->image,
+                'first_name' => $data->first_name,
+                'last_name' => $data->last_name,
+                'description' => $data->description,
+                'state' => $data->state,
+                'country' => $data->country,
+                'industry' => $data->industry,
+                'fb_link' => $data->fb_link,
+                'twitter_link' => $data->twitter_link,
+                'youtube_link' => $data->youtube_link,
+                'instagram_link' => $data->instagram_link,
+            ]);
 
         $usersdata = $this->userDetails($id);
 
