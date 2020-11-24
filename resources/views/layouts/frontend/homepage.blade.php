@@ -54,14 +54,31 @@
             </div>
         </div>
       </section>
+      <section class="user-dataTable mb-5">
+          <div class="container">
+            <div class="row justify-content-center mt-5">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <table class="table table-hover user-data">
+                                <thead>
+                                    <tr>
+                                        <th>id</th>
+                                        <th>state</th>
+                                        <th>country</th>
+                                        <th>created_at</th>
+                                        <th>updated_at</th>
+                                        <th>link</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+      </section>
     </div>
-
-
-    <div class="container">
-  <div class="row justify-content-center mt-5">
-    <div class="col">
-        {{$dataTable->table()}}
-    </div>
-  </div>
-</div>
 @endsection

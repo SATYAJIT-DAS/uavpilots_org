@@ -14,21 +14,15 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', 'FrontendController@homepage')->name('homepage');
-Route::get('/test', 'FrontendController@test')->name('test');
-Route::group(['namespace' => 'Data'], function () {
-    Route::get('users/data', 'UsersDataController@getUsersData')->name('users.data');
-});
-
-// Route::get('/blog', 'FrontendController@blog')->name('blog');
-// Route::get('/singlepage', 'FrontendController@singlepage')->name('singlepage');
+Route::get('/userdata', 'FrontendController@getBasicData')->name('userdata');
+Route::get('/profile', 'FrontendController@homepage')->name('profile');
 Auth::routes();
 Route::group(['middleware' => 'auth', 'namespace' => 'User'], function () {
     Route::get('/home', 'UserController@index')->name('user.home');
 });
-
 Route::prefix('/admin')->namespace("Admin")->group(function () {
-    Route::get('/', 'AdminController@loginView')->name('admin.login');
-    Route::post('/', 'AdminController@login');
+    Route::get('/', 'AdminLoginController@loginView')->name('admin.login');
+    Route::post('/', 'AdminLoginController@login');
     Route::group(['middleware' => ['admin']], function () {
         Route::get('dashboard', 'AdminController@dashboard')->name('admin.dashboard');
         Route::get('settings', 'AdminController@settings')->name('admin.settings');
@@ -36,5 +30,10 @@ Route::prefix('/admin')->namespace("Admin")->group(function () {
         Route::post('update-pwd', 'AdminController@updatePwd');
         Route::post('update-profile-img', 'AdminController@updateProfileimg')->name('admin.profile.img');
         Route::get('logout', 'AdminController@logout')->name('admin.logout');
+        Route::get('pending-user-data', 'AdminController@pendingUserData')->name('admin.pendinguserdata');
+        Route::get('active-user-data', 'AdminController@activeUserData')->name('admin.activeuserdata');
+        Route::get('user-update/{id}', 'AdminController@UpdateUser')->name('admin.updateuser');
+        Route::post('approve-user', 'AdminController@approveUser')->name('admin.approveuser');
+        Route::post('remove-user', 'AdminController@removeUser')->name('admin.deleteuser');
     });
 });

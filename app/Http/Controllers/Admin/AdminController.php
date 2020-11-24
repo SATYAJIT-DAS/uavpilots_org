@@ -7,36 +7,19 @@ use Illuminate\Http\Request;
 // use Auth;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Admin;
-use Hash;
-use App\Http\Requests\AdminLoginRequest;
 use App\Http\Requests\UploadAdminProfile;
+use App\Models\UserData;
+use App\Models\User;
+use Yajra\Datatables\Datatables;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
     //
     public function __construct()
     {
-        //$this->middleware('admin');
+        $this->middleware('admin');
     }
-    public function loginView()
-    {
-        if (Auth::guard('admin')->check()) {
-            return redirect()->intended('admin/dashboard');
-        }
-        return view('layouts.admin.login');
-    }
-    public function login(AdminLoginRequest $request)
-    {
-        $credentials = $request->only('email', 'password');
-        $remember = ($request->input('remember') == '1') ? true : false;
-        if (Auth::guard('admin')->attempt($credentials, $remember)) {
-            return redirect()->intended('admin/dashboard');
-        } else {
-            $request->session()->flash('error', 'Credential is not correct');
-            return redirect()->back();
-        }
-    }
-
     public function dashboard()
     {
         $adminDetails = $this->getAdminDetails();
@@ -75,6 +58,76 @@ class AdminController extends Controller
         } else {
             return back()->with('error', 'There was an error');
         }
+    }
+
+    public function pendingUserData()
+    {
+        $usersdata = DB::table('user_data')
+            ->join('users', function ($join) {
+                $join->on('users.id', '=', 'user_data.user_id')
+                    ->where('status', false);
+            })
+            ->get();
+        return Datatables::of($usersdata)
+            ->addColumn('action', function ($usersdata) {
+                $action = '<button type="button"  class="btn btn-success my-1 approve-button"  id="' . $usersdata->id . '"> Approve</a>';
+                $action .=
+                    '<button type="button"  class="btn btn-danger my-2 delete-button"  id="' . $usersdata->id . '"> Delete</a>';
+                $action .= '<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">';
+                return $action;
+                // return
+            })
+            ->addColumn('link', function ($usersdata) {
+                $link = '<a href="' . route('profile') . '">' . $usersdata->country . '</a>';
+                return $link;
+            })
+            ->rawColumns(['link', 'action'])
+            ->make(true);
+    }
+    public function activeUserData()
+    {
+        $usersdata = DB::table('user_data')
+            ->join('users', function ($join) {
+                $join->on('users.id', '=', 'user_data.user_id')
+                    ->where('status', True);
+            })
+            ->get();
+        return Datatables::of($usersdata)
+            ->addColumn('action', function ($usersdata) {
+                // $action = '<button type="button"  class="btn btn-success my-1 approve-button"  id="' . $usersdata->id . '"> Approve</a>';
+                $action = '<a href="' . route('admin.updateuser', $usersdata->id) . '">Edit</a>';
+                $action .=
+                    '<button type="button"  class="btn btn-danger my-1 delete-active-user-button "  id="' . $usersdata->id . '"> Delete</a>';
+                $action .= '<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">';
+                return $action;
+                // return
+            })
+            ->addColumn('link', function ($usersdata) {
+                $link = '<a href="' . route('profile') . '">' . $usersdata->country . '</a>';
+                return $link;
+            })
+            ->rawColumns(['link', 'action'])
+            ->make(true);
+    }
+
+
+    public function UpdateUser($id)
+    {
+        $usersdata = DB::table('user_data')->where('id', $id)->first();
+        return view('layouts.admin.update_profile', compact('usersdata'));
+    }
+    public function approveUser()
+    {
+        $data = $_POST['approve_id'];
+        User::where('id', $data)->update(['status' => true]);
+    }
+
+
+    public function removeUser()
+    {
+        $data = $_POST['delete_id'];
+        User::where('id', $data)->delete();
+        UserData::where('user_id', $data)->delete();
     }
 
 

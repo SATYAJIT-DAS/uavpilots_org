@@ -49,20 +49,6 @@
                 <button type="submit" class="btn btn-primary mt-2">Update</button>
               </form>
             </div>
-            <div class="d-flex align-items-center px-4 py-3 b-t">
-              <i data-feather="refresh-cw"></i>
-              <div class="px-3">
-                <div>Sync</div>
-                <div class="text-sm text-muted">On - Sync everything</div>
-              </div>
-              <div class="flex"></div>
-              <span>
-                <label class="ui-switch ui-switch-md">
-                  <input type="checkbox" checked>
-                  <i></i>
-                </label>
-              </span>
-            </div>
             <div class="d-flex align-items-center px-4 py-3 b-t pointer" data-toggle="collapse" data-parent="#accordion" data-target="#c_2">
               <i data-feather="lock"></i>
               <div class="px-3">

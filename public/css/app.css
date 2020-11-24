@@ -380,10 +380,6 @@ div.dt-buttons a.btn.processing:after {
 }
 @charset "UTF-8";
 
-.dataTables_wrapper {
-  overflow-x: auto !important;
-}
-
 .bg-white {
   background-color: #fff;
 }

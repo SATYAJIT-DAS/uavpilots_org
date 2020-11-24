@@ -1,4 +1,3 @@
-
 @include('layouts.global_layout.header')
 @if (!Route::is('admin.login'))
    @include('layouts.admin.sidebar')

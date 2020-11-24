@@ -45,7 +45,7 @@
                     <i data-feather="maximize"></i>
                     </a>
                 </li>
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link px-2" data-toggle="dropdown">
                     <i data-feather="settings"></i>
                     </a>
@@ -68,7 +68,7 @@
                     </div>
                     </div>
                     <!-- Setting END-->
-                </li>
+                </li> --}}
             <!-- Navarbar toggle btn -->
 
         </ul>

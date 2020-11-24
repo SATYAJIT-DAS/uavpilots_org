@@ -3,27 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\DataTables\UserListDataTable;
+use App\Models\UserData;
+use Yajra\Datatables\Datatables;
 
 class FrontendController extends Controller
 {
     //
-    public function homepage(UserListDataTable $dataTable)
+    public function homepage()
     {
-        return $dataTable->render('layouts.frontend.homepage');
+        return view('layouts.frontend.homepage');
     }
-    public function test(UserListDataTable $dataTable)
+    public function getBasicData()
     {
-        return $dataTable->render('test');
+        $usersdata = UserData::select(['id', 'state', 'country', 'created_at', 'updated_at']);
+        return Datatables::of($usersdata)
+            ->addColumn('link', function ($usersdata) {
+                $actionBtn = '<a href="' . route('profile') . '">' . $usersdata->country . '</a>';
+                return $actionBtn;
+            })
+            ->rawColumns(['link'])
+            ->make(true);
     }
-
-    // blog for future
-    // public function blog()
-    // {
-    //     return view('layouts.frontend.blog');
-    // }
-    // public function singlepage()
-    // {
-    //     return view('layouts.frontend.singlepage');
-    // }
 }
