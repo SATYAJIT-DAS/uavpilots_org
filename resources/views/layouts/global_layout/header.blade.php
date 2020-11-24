@@ -15,6 +15,7 @@
         @if (Request::is('admin/*'))
             <link rel="stylesheet" href="{{asset('/dropzone/dist/min/dropzone.min.css')}}">
             <link rel="stylesheet" href="{{asset('/dropzone/dist/min/dropzone.min.js')}}">
+            <link rel="stylesheet" href="{{ asset('css/update-profile-picture.css') }}" type="text/css" />
         @endif
         @if (Request::is('/'))
             <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
