@@ -94,7 +94,7 @@ class AdminController extends Controller
         return Datatables::of($usersdata)
             ->addColumn('action', function ($usersdata) {
                 // $action = '<button type="button"  class="btn btn-success my-1 approve-button"  id="' . $usersdata->id . '"> Approve</a>';
-                $action = '<a href="' . route('admin.updateuser', $usersdata->id) . '">Edit</a>';
+                $action = '<a href="' . route('admin.updateuserview', $usersdata->id) . '">Edit</a>';
                 $action .=
                     '<button type="button"  class="btn btn-danger my-1 delete-active-user-button "  id="' . $usersdata->id . '"> Delete</a>';
                 $action .= '<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">';
@@ -109,12 +109,74 @@ class AdminController extends Controller
     }
 
 
-    public function UpdateUser($id)
+    public function UpdateUserView($id)
     {
         $userdata = $this->userDetails($id);
         $adminDetails = $this->getAdminDetails();
         return view('layouts.admin.update_profile', compact('userdata', 'adminDetails'));
     }
+
+    public function UpdateUser($id,Request $data)
+    {
+        
+        $adminDetails = $this->getAdminDetails();
+
+
+        if ($request->hasFile('image')) {
+
+            Admin::uploadimage($data->image);
+
+            return back()->with('success', 'Image Upload successfully');
+
+        } else {
+
+            return back()->with('error', 'There was an error');
+
+        }
+
+
+
+        $update_status = UserData::where('user_id', $data->id)
+                    ->update(['image' => $data->image,
+                            'first_name' => $data->first_name,
+                            'last_name' => $data->last_name,
+                            'description' => $data->description,
+                            'state' => $data->state,
+                            'country' => $data->country,
+                            'industry' => $data->industry,
+                            'fb_link' => $data->fb_link,
+                            'twitter_link' => $data->twitter_link,
+                            'youtube_link' => $data->youtube_link,
+                            'instagram_link' => $data->instagram_link,]);
+
+        $usersdata = $this->userDetails($id);
+
+        return view('layouts.admin.update_profile', compact('usersdata', 'adminDetails'));
+    }
+
+
+
+    public static function uploadUserimage($image)
+    {
+        $filename = time() . '.' . $image->getClientOriginalExtension();
+
+        // (new self())->deleteOldUserImg();
+
+        $image->storeAs('admin/images', $filename, 'public');
+
+        Auth::guard('admin')->user()->update(['image' => $filename]);
+    }
+
+    protected function deleteOldUserImg()
+    {
+        $img = Auth::guard('admin')->user()->image;
+
+        if ($img) {
+            Storage::delete('/public/images/' . $img);
+        }
+    }
+
+
 
     protected function userDetails($id)
     {
