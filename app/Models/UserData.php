@@ -14,6 +14,11 @@ class UserData extends Model
      * @var array
      */
     protected $fillable = [
-        'frst_name', 'last_name', 'country', 'state', 'industry', 'description', 'image'
+       'first_name', 'last_name', 'description', 'state', 'country', 'industry', 'image',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }
