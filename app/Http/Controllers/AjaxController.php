@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\UserData;
 
 
 class AjaxController extends Controller
@@ -11,7 +11,7 @@ class AjaxController extends Controller
     public function checkusername(Request $request)
     {
         $given_username = $request->message;
-        $usernamecheck = User::where('username', $given_username)->first();
+        $usernamecheck = UserData::where('username', $given_username)->first();
         if ($usernamecheck === null) {
             return 1;
         } else {

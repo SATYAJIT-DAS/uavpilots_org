@@ -299,25 +299,19 @@ $(function () {
       data: "id",
       name: "id"
     }, {
-      data: "state",
-      name: "state"
+      data: "name",
+      name: "name"
     }, {
-      data: "country",
-      name: "country"
+      data: "industry",
+      name: "industry"
     }, {
-      data: "created_at",
-      name: "created_at"
-    }, {
-      data: "updated_at",
-      name: "updated_at"
-    }, {
-      data: "link",
-      name: "link"
+      data: "location",
+      name: "location"
     }],
     scrollX: true,
     pagingType: "full",
     initComplete: function initComplete() {
-      var column = this.api().column(1);
+      var column = this.api().column(2);
       var select = $('<select class="ml-2 custom-select custom-select-sm form-control form-control-sm"><option value=""></option></select>').appendTo($("#DataTables_Table_0_length")).on("change", function () {
         var val = $.fn.dataTable.util.escapeRegex($(this).val());
         column.search(val ? "^" + val + "$" : "", true, false).draw();
@@ -342,21 +336,10 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/sass/update-profile-picture.scss":
-/*!****************************************************!*\
-  !*** ./resources/sass/update-profile-picture.scss ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ 0:
-/*!**********************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/update-profile-picture.scss ./resources/sass/app.scss ***!
-  \**********************************************************************************************************/
+/*!*************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

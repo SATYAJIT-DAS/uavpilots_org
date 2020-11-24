@@ -118,25 +118,17 @@ class AdminController extends Controller
 
     public function UpdateUser($id, Request $data)
     {
+        // if ($request->hasFile('image')) {
 
-        $adminDetails = $this->getAdminDetails();
+        //     Admin::uploadimage($data->image);
 
+        //     return back()->with('success', 'Image Upload successfully');
+        // } else {
 
-        if ($request->hasFile('image')) {
-
-            Admin::uploadimage($data->image);
-
-            return back()->with('success', 'Image Upload successfully');
-        } else {
-
-            return back()->with('error', 'There was an error');
-        }
-
-
-
+        //     return back()->with('error', 'There was an error');
+        // }
         $update_status = UserData::where('user_id', $data->id)
             ->update([
-                'image' => $data->image,
                 'first_name' => $data->first_name,
                 'last_name' => $data->last_name,
                 'description' => $data->description,
@@ -150,33 +142,10 @@ class AdminController extends Controller
             ]);
 
         $usersdata = $this->userDetails($id);
+        $adminDetails = $this->getAdminDetails();
 
         return view('layouts.admin.update_profile', compact('usersdata', 'adminDetails'));
     }
-
-
-
-    public static function uploadUserimage($image)
-    {
-        $filename = time() . '.' . $image->getClientOriginalExtension();
-
-        // (new self())->deleteOldUserImg();
-
-        $image->storeAs('admin/images', $filename, 'public');
-
-        Auth::guard('admin')->user()->update(['image' => $filename]);
-    }
-
-    protected function deleteOldUserImg()
-    {
-        $img = Auth::guard('admin')->user()->image;
-
-        if ($img) {
-            Storage::delete('/public/images/' . $img);
-        }
-    }
-
-
 
     protected function userDetails($id)
     {

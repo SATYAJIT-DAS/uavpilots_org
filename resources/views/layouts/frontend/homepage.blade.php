@@ -64,11 +64,9 @@
                                 <thead>
                                     <tr>
                                         <th>id</th>
-                                        <th>state</th>
-                                        <th>country</th>
-                                        <th>created_at</th>
-                                        <th>updated_at</th>
-                                        <th>link</th>
+                                        <th>Name</th>
+                                        <th>Industry</th>
+                                        <th>Location</th>
                                     </tr>
                                 </thead>
                                 <tbody>
