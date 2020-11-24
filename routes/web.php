@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+// use App\Http\Controllers\User\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +21,7 @@ Route::get('/profile', 'FrontendController@homepage')->name('profile');
 Auth::routes();
 Route::group(['middleware' => 'auth', 'namespace' => 'User'], function () {
     Route::get('/home', 'UserController@index')->name('user.home');
+
 });
 Route::prefix('/admin')->namespace("Admin")->group(function () {
     Route::get('/', 'AdminLoginController@loginView')->name('admin.login');
@@ -37,3 +40,6 @@ Route::prefix('/admin')->namespace("Admin")->group(function () {
         Route::post('remove-user', 'AdminController@removeUser')->name('admin.deleteuser');
     });
 });
+
+
+Route::post('/postajax', 'AjaxController@checkusername');

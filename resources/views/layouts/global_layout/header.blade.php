@@ -30,4 +30,3 @@
         <body class="layout-row">
     @endif
     <body class="layout-coloum">
-

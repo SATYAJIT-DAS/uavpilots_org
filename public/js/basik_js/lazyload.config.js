@@ -119,7 +119,9 @@ var MODULE_CONFIG = {
                       '../js/basik_js/app/calendar.js'
                     ],
     parsley:        [
-                      '../libs/parsleyjs/dist/parsley.min.js'
+                      '../libs/parsleyjs/dist/parsley.min.js',
+                      './js/basik_js/parslyException.js',
+                      './js/basik_js/usernameajax.js'
                     ],
     select2:        [
                       '../libs/select2/dist/css/select2.min.css',

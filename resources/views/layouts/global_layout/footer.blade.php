@@ -14,6 +14,10 @@
 <script src="{{ asset('js/basik_js/lazyload.js') }}"></script>
 <script src="{{ asset('js/basik_js/plugin.js') }}"></script>
 
+
+
+
+
 <!-- feathericon -->
 <script src="{{ asset('libs/feather-icons/dist/feather.min.js') }}"></script>
 <script src="{{ asset('js/basik_js/plugins/feathericon.js') }}"></script>
@@ -26,6 +30,7 @@
 <script src="{{asset('js/admin/script.js')}}"></script>
 @endif
 <script src="{{ asset('js/frontend/script.js') }}"></script>
+
 @if(Request::is('/'))
 @endif
 <script src = "https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js" defer ></script>
