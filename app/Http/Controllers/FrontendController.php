@@ -16,13 +16,17 @@ class FrontendController extends Controller
     }
     public function getBasicData()
     {
-        $usersdata = UserData::select(['id', 'state', 'username', 'country', 'created_at', 'updated_at']);
+        $usersdata = UserData::select(['id', 'industry', 'username', 'country', 'state']);
         return Datatables::of($usersdata)
-            ->addColumn('link', function ($usersdata) {
+            ->addColumn('name', function ($usersdata) {
                 $actionBtn = '<a href="' . route('profile', $usersdata->username) . '">' . $usersdata->username . '</a>';
                 return $actionBtn;
             })
-            ->rawColumns(['link'])
+            ->addColumn('location', function ($usersdata) {
+                $actionBtn = $usersdata->country . ' ,' . $usersdata->state;
+                return $actionBtn;
+            })
+            ->rawColumns(['name', 'location'])
             ->make(true);
     }
     public function singleUser($username)

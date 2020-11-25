@@ -13,7 +13,7 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="media media-16x9 gd-primary">
-                            <div class="media-content" style="background-image:url({{ asset('img/talking.jpg') }})"></div>
+                            <div class="media-content" style="background-image:url({{ asset('img/talking-3.jpg') }})"></div>
                             </div>
                             <div class="carousel-caption text-align-auto">
                                 <span class="badge badge-outline">FEATURED</span>
@@ -23,7 +23,7 @@
                         </div>
                         <div class="carousel-item">
                             <div class="media media-16x9 gd-info">
-                            <div class="media-content" style="background-image:url({{ asset('img/talking-2.jpg') }})"></div>
+                            <div class="media-content" style="background-image:url({{ asset('img/talking-3.jpg') }})"></div>
                             </div>
                             <div class="carousel-caption text-align-auto">
                                 <span class="badge badge-outline">POPULAR</span>
@@ -64,11 +64,9 @@
                                 <thead>
                                     <tr>
                                         <th>id</th>
-                                        <th>state</th>
-                                        <th>country</th>
-                                        <th>created_at</th>
-                                        <th>updated_at</th>
-                                        <th>link</th>
+                                        <th>Name</th>
+                                        <th>Industry</th>
+                                        <th>Location</th>
                                     </tr>
                                 </thead>
                                 <tbody>

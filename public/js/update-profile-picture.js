@@ -94,6 +94,7 @@
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
+  // $('.profile-pic').attr('src', e.target.result);
   var readURL = function readURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();

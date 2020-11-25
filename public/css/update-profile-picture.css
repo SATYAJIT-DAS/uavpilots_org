@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 .avatar-wrapper {
+  display: flex;
   position: relative;
   height: 200px;
   width: 200px;
@@ -51,7 +52,7 @@
 .avatar-wrapper .upload-button .fa-arrow-circle-up {
   position: absolute;
   font-size: 234px;
-  top: -17px;
+  top: -14px;
   left: 0;
   text-align: center;
   opacity: 0;

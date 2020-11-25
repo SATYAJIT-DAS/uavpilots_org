@@ -10,14 +10,16 @@ $(document).ready(function(){
 
 			$(".passchangeinput").css("display","block");
 
-			$(".changepass").css("background-color","black");
+			// $(".changepass").css("background-color","black");
 
 
 		}
 		else{
 			$(".passchangeinput").css("display","none");
 
-			$(".changepass").css("background-color","blue");
+			// $(".changepass").css("background-color","blue");
+
+			
 		}
 
 

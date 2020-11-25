@@ -26,7 +26,7 @@ class CreateUserDataTable extends Migration
             $table->string('state', 255);
             $table->string('country', 255);
             $table->string('industry', 255);
-            $table->string('image')->nullable();
+            $table->string('user_image')->nullable();
             $table->string('fb_link')->nullable();
             $table->string('twitter_link')->nullable();
             $table->string('youtube_link')->nullable();

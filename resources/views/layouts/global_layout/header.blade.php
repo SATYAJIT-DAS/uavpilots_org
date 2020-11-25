@@ -24,11 +24,12 @@
             <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
         @endif
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
-        <script src="https://use.fontawesome.com/38dfb36663.js"></script>
+        {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+        <script src="https://use.fontawesome.com/38dfb36663.js"></script> --}}
         <!-- endbuild -->
         {{-- scroll reveal js --}}
         <script src="https://unpkg.com/scrollreveal"></script>
+        <script type="text/javascript"> (function() { var css = document.createElement('script'); css.src = 'https://use.fontawesome.com/38dfb36663.js';  document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
     </head>
     @if (Request::is('admin/*'))
         <body class="layout-row">

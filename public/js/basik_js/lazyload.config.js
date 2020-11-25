@@ -107,7 +107,7 @@ var MODULE_CONFIG = {
         "../js/basik_js/plugins/notie.js",
         "../js/basik_js/app/calendar.js"
     ],
-    parsley: [
+    parsley: [ 
         "../libs/parsleyjs/dist/parsley.min.js",
         "./js/basik_js/parslyException.js",
         "./js/basik_js/userNameAvailabilty.js",

@@ -12,7 +12,7 @@
       </h2>
     </legend>
   <div class="avatar-wrapper">
-  	<img class="profile-pic" src="{{$userdata->image ?? asset('images/default-avatar.png')}}" />
+  	<img class="profile-pic" src="{{$userdata->image ?? asset('images/default-avatar.png')}}" alt="Update Profile Picture" />
   	<div class="upload-button">
   		<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
   	</div>
@@ -25,7 +25,7 @@
     <label class="col-md-8 control-label">First Name</label>
     <div class="col-md-8 inputGroupContainer">
     <div class="input-group">
-    <input  name="first_name" placeholder="First Name" class="form-control"  type="text" value="{{$userdata->first_name}}">
+    <input  name="first_name" placeholder="First Name" class="form-control"  type="text" value="{{$userdata->first_name}}" required>
       </div>
     </div>
   </div>
@@ -36,7 +36,7 @@
     <label class="col-md-8 control-label">Last Name</label>
       <div class="col-md-8 inputGroupContainer">
       <div class="input-group">
-    <input name="last_name" placeholder="Last Name" class="form-control"  type="text" value="{{$userdata->last_name}}">
+    <input name="last_name" placeholder="Last Name" class="form-control"  type="text" value="{{$userdata->last_name}}" required>
       </div>
     </div>
   </div>
@@ -46,7 +46,7 @@
     <label class="col-md-8 control-label">Username</label>
       <div class="col-md-8 inputGroupContainer">
       <div class="input-group">
-    <input name="username" placeholder="Username" class="form-control"  type="text" value="{{$userdata->username}}">
+    <input name="username" placeholder="Username" class="form-control"  type="text" value="{{$userdata->username}}" required>
       </div>
     </div>
   </div>
@@ -56,7 +56,7 @@
     
       <div class="col-md-8 inputGroupContainer">
         <div class="input-group">
-          <button class="btn btn-primary changepass">Change Password</button>
+          <button class="btn btn-primary changepass">Change Password &#x25bc;</button>
         </div>
       </div>
   </div>
@@ -75,7 +75,7 @@
     <label class="col-md-8 control-label">Add New Password</label>
       <div class="col-md-8 inputGroupContainer">
       <div class="input-group">
-    <input name="state" class="form-control"  type="password">
+    <input name="password_confirmation" class="form-control" class="form-control" type="password" id="pwd">
       </div>
     </div>
   </div>
@@ -84,14 +84,14 @@
     <label class="col-md-8 control-label">Confirm New Password</label>
       <div class="col-md-8 inputGroupContainer">
       <div class="input-group">
-    <input name="state" class="form-control"  type="password">
+    <input name="state" class="form-control"  type="password" data-parsley-equalto="#pwd">
       </div>
     </div>
   </div>
 
 
 
-
+<hr>
 
 
 
@@ -101,7 +101,7 @@
     <label class="col-md-8 control-label" >Description</label>
       <div class="col-md-8 inputGroupContainer">
       <div class="input-group">
-      	<textarea class="form-control" id="description" rows="3" name="description">{{$userdata->description}}</textarea>
+      	<textarea class="form-control" id="description" rows="3" name="description" required>{{$userdata->description}}</textarea>
   	</div>
     </div>
   </div>
@@ -110,7 +110,7 @@
     <label class="col-md-8 control-label" >State</label>
       <div class="col-md-8 inputGroupContainer">
       <div class="input-group">
-    <input name="state" class="form-control"  type="text" value="{{$userdata->state}}">
+    <input name="state" class="form-control"  type="text" value="{{$userdata->state}}" required>
       </div>
     </div>
   </div>
@@ -119,7 +119,7 @@
     <label class="col-md-8 control-label" >Country</label>
       <div class="col-md-8 inputGroupContainer">
       <div class="input-group">
-    <input name="country" class="form-control"  type="text" value="{{$userdata->country}}">
+    <input name="country" class="form-control"  type="text" value="{{$userdata->country}}" required>
       </div>
     </div>
   </div>
@@ -130,7 +130,7 @@
         <div class="col-md-8 selectContainer">
           <div class="input-group">
 
-            <select name="industry" class="form-control selectpicker">
+            <select name="industry" class="form-control selectpicker" required>
               <option value="">Choose</option>
               <option>Department of Engineering</option>
               <option>Department of Agriculture</option>
@@ -151,7 +151,7 @@
   <label class="col-md-8 control-label" >Facebook Link</label>
     <div class="col-md-8 inputGroupContainer">
     <div class="input-group">
-  <input name="fb_link" class="form-control"  type="text" value="{{$userdata->fb_link}}">
+  <input name="fb_link" class="form-control"  type="text" value="{{$userdata->fb_link}}" required>
     </div>
   </div>
 </div>
@@ -160,7 +160,7 @@
   <label class="col-md-8 control-label" >Twitter Link</label>
     <div class="col-md-8 inputGroupContainer">
     <div class="input-group">
-  <input name="twitter_link" class="form-control"  type="text" value="{{$userdata->twitter_link}}">
+  <input name="twitter_link" class="form-control"  type="text" value="{{$userdata->twitter_link}}" >
     </div>
   </div>
 </div>
