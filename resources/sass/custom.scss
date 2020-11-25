@@ -4,6 +4,25 @@
 .bg-white{
     background-color: $white;
 }
+.img-fluid {
+    max-width: 100%;
+    height: 70vh!important;
+}
+
+.bg-dark {
+    td,body,.dropdown-item,th{
+        color:#fff;
+    }
+    .navbar-toggler{
+        background-color: #fff !important;
+    }
+    .bg-secondary{
+        background: #192039 !important;
+    }
+    body{
+        background: #373c5f !important;
+    }
+}
 table{
     width: 100%!important;
 }

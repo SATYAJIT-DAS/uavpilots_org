@@ -6,10 +6,10 @@ $(function() {
         ajax: "pending-user-data",
         columns: [
             { data: "id", name: "id" },
-            { data: "state", name: "state" },
+            { data: "industry", name: "industry" },
             { data: "country", name: "country" },
-            { data: "created_at", name: "created_at" },
-            { data: "updated_at", name: "updated_at" },
+            { data: "fullname", name: "fullname" },
+            { data: "email", name: "email" },
             { data: "link", name: "link" },
             { data: "action", name: "action" }
         ],
@@ -46,10 +46,10 @@ $(function() {
         ajax: "active-user-data",
         columns: [
             { data: "id", name: "id" },
-            { data: "state", name: "state" },
+            { data: "industry", name: "industry" },
             { data: "country", name: "country" },
-            { data: "created_at", name: "created_at" },
-            { data: "updated_at", name: "updated_at" },
+            { data: "fullname", name: "fullname" },
+            { data: "email", name: "email" },
             { data: "link", name: "link" },
             { data: "action", name: "action" }
         ],
@@ -90,6 +90,23 @@ $(function() {
             type: "POST",
             url: "approve-user",
             data: { approve_id: userid },
+            success: function(data) {
+                pendingtable.ajax.reload();
+                userListtable.ajax.reload();
+            }
+        });
+    });
+    $(document).on("click", ".unpublish-button", function() {
+        var userid = parseInt($(this).attr("id"));
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+            }
+        });
+        $.ajax({
+            type: "POST",
+            url: "unpublish-user",
+            data: { unpublish_id: userid },
             success: function(data) {
                 pendingtable.ajax.reload();
                 userListtable.ajax.reload();

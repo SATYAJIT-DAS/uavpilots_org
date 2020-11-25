@@ -70,17 +70,21 @@ class AdminController extends Controller
             ->get();
         return Datatables::of($usersdata)
             ->addColumn('action', function ($usersdata) {
-                $action = '<button type="button"  class="btn btn-success my-1 approve-button"  id="' . $usersdata->id . '"> Approve</a>';
+                $action = '<button type="button"  class="btn btn-success m-1 approve-button"  id="' . $usersdata->id . '"> Approve</a>';
                 $action .=
-                    '<button type="button"  class="btn btn-danger my-2 delete-button"  id="' . $usersdata->id . '"> Delete</a>';
+                    '<button type="button"  class="btn btn-danger m-2 delete-button"  id="' . $usersdata->id . '"> Delete</a>';
                 $action .= '<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">';
                 return $action;
+            })
+            ->addColumn('fullname', function ($usersdata) {
+                $actionBtn = $usersdata->first_name . ' ' . $usersdata->last_name;
+                return $actionBtn;
             })
             ->addColumn('link', function ($usersdata) {
                 $link = '<a target="_blank" href="' .  route('profile', $usersdata->username) . '">' . $usersdata->username . '</a>';
                 return $link;
             })
-            ->rawColumns(['link', 'action'])
+            ->rawColumns(['link', 'action', 'fullname'])
             ->make(true);
     }
     public function activeUserData()
@@ -93,18 +97,23 @@ class AdminController extends Controller
             ->get();
         return Datatables::of($usersdata)
             ->addColumn('action', function ($usersdata) {
-                // $action = '<button type="button"  class="btn btn-success my-1 approve-button"  id="' . $usersdata->id . '"> Approve</a>';
-                $action = '<a href="' . route('admin.updateuserview', $usersdata->id) . '">Edit</a>';
+
+                $action = '<a class="btn btn-success m-1" href="' . route('admin.updateuserview', $usersdata->id) . '">Edit</a>';
+                $action .= '<button type="button"  class="btn btn-success m-1 unpublish-button"  id="' . $usersdata->id . '"> Unpublish</a>';
                 $action .=
-                    '<button type="button"  class="btn btn-danger my-1 delete-active-user-button "  id="' . $usersdata->id . '"> Delete</a>';
+                    '<button type="button"  class="btn btn-danger m-1 delete-active-user-button "  id="' . $usersdata->id . '"> Delete</a>';
                 $action .= '<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">';
                 return $action;
+            })
+            ->addColumn('fullname', function ($usersdata) {
+                $actionBtn = $usersdata->first_name . ' ' . $usersdata->last_name;
+                return $actionBtn;
             })
             ->addColumn('link', function ($usersdata) {
                 $link = '<a target="_blank" href="' .  route('profile', $usersdata->username) . '">' . $usersdata->username . '</a>';
                 return $link;
             })
-            ->rawColumns(['link', 'action'])
+            ->rawColumns(['link', 'action', 'fullname'])
             ->make(true);
     }
 
@@ -158,7 +167,11 @@ class AdminController extends Controller
         User::where('id', $data)->update(['status' => true]);
     }
 
-
+    public function unpublishUser()
+    {
+        $data = $_POST['unpublish_id'];
+        User::where('id', $data)->update(['status' => false]);
+    }
     public function removeUser()
     {
         $data = $_POST['delete_id'];

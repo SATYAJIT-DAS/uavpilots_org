@@ -27,13 +27,13 @@
                     <table class="table table-hover waiting-approval-user-data">
                         <thead>
                             <tr>
-                                <th>id</th>
-                                <th>state</th>
-                                <th>country</th>
-                                <th>created_at</th>
-                                <th>updated_at</th>
-                                <th>link</th>
-                                <th>action</th>
+                                <th>ID</th>
+                                <th>Industry</th>
+                                <th>Country</th>
+                                <th>User Name</th>
+                                <th>Email</th>
+                                <th>Link</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -54,13 +54,13 @@
                     <table class="table table-hover active-user-data">
                         <thead>
                             <tr>
-                                <th>id</th>
-                                <th>state</th>
-                                <th>country</th>
-                                <th>created_at</th>
-                                <th>updated_at</th>
-                                <th>link</th>
-                                <th>action</th>
+                                <th>ID</th>
+                                <th>Industry</th>
+                                <th>Country</th>
+                                <th>User Name</th>
+                                <th>Email</th>
+                                <th>Link</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -5,11 +5,13 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    @if (empty($userdata->user_image))
-                        <img src="{{ asset('img/talking-2.jpg') }}" class="img-fluid" alt="Responsive image">
-                    @else
-                        <img src="{{asset('storage/users/images/'.$userdata->user_image)}}" class="img-fluid" alt="Responsive image">
-                    @endif
+                    <div class="block p-md-3 ">
+                        @if (empty($userdata->user_image))
+                            <img src="{{ asset('img/talking-3.jpg') }}" class="img-fluid" alt="Responsive image">
+                        @else
+                            <img src="{{asset('storage/users/images/'.$userdata->user_image)}}" class="img-fluid" alt="Responsive image">
+                        @endif
+                    </div>
                 </div>
             </div>
             <div class="row">

@@ -103,17 +103,17 @@ $(function () {
       data: "id",
       name: "id"
     }, {
-      data: "state",
-      name: "state"
+      data: "industry",
+      name: "industry"
     }, {
       data: "country",
       name: "country"
     }, {
-      data: "created_at",
-      name: "created_at"
+      data: "fullname",
+      name: "fullname"
     }, {
-      data: "updated_at",
-      name: "updated_at"
+      data: "email",
+      name: "email"
     }, {
       data: "link",
       name: "link"
@@ -143,17 +143,17 @@ $(function () {
       data: "id",
       name: "id"
     }, {
-      data: "state",
-      name: "state"
+      data: "industry",
+      name: "industry"
     }, {
       data: "country",
       name: "country"
     }, {
-      data: "created_at",
-      name: "created_at"
+      data: "fullname",
+      name: "fullname"
     }, {
-      data: "updated_at",
-      name: "updated_at"
+      data: "email",
+      name: "email"
     }, {
       data: "link",
       name: "link"
@@ -186,6 +186,25 @@ $(function () {
       url: "approve-user",
       data: {
         approve_id: userid
+      },
+      success: function success(data) {
+        pendingtable.ajax.reload();
+        userListtable.ajax.reload();
+      }
+    });
+  });
+  $(document).on("click", ".unpublish-button", function () {
+    var userid = parseInt($(this).attr("id"));
+    $.ajaxSetup({
+      headers: {
+        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+      }
+    });
+    $.ajax({
+      type: "POST",
+      url: "unpublish-user",
+      data: {
+        unpublish_id: userid
       },
       success: function success(data) {
         pendingtable.ajax.reload();

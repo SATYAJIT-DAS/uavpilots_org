@@ -16,7 +16,13 @@ class FrontendController extends Controller
     }
     public function getBasicData()
     {
-        $usersdata = UserData::select(['id', 'industry', 'username', 'country', 'state']);
+        $usersdata = DB::table('user_data')
+            ->join('users', function ($join) {
+                $join->on('users.id', '=', 'user_data.user_id')
+                    ->where('status', True);
+            })
+            ->orderBy('user_data.user_id', 'asc')
+            ->get();
         return Datatables::of($usersdata)
             ->addColumn('name', function ($usersdata) {
                 $actionBtn = '<a href="' . route('profile', $usersdata->username) . '">' . $usersdata->username . '</a>';

@@ -1,15 +1,18 @@
 <section class="footer">
-    <footer class="page-footer font-small stylish-color-dark pt-4 bg-secondary">
+    <footer class="page-footer font-small pt-4 bg-secondary">
     <hr class="d-block d-md-none">
     <div class="pt-5">
-        <ul class="list-unstyled list-inline text-center py-2">
-            <li class="list-inline-item">
-              <h5 class="mb-1 text-light">Register for free</h5>
-            </li>
-            <li class="list-inline-item pb-5">
-              <a href="{{ route('register') }}" class="btn w-sm mb-1 btn-rounded btn-outline-success">Sign up!</a>
-            </li>
-          </ul>
+        @guest
+            <ul class="list-unstyled list-inline text-center py-2">
+                <li class="list-inline-item">
+                    <h5 class="mb-1 text-light">Register for free</h5>
+                </li>
+                <li class="list-inline-item pb-5">
+                    <a href="{{ route('register') }}" class="btn w-sm mb-1 btn-rounded btn-outline-success">Sign up!</a>
+                </li>
+            </ul>
+        @endguest
+
           <hr class="d-block d-md-none">
           <ul class="list-unstyled list-inline text-center">
             <li class="list-inline-item">

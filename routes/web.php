@@ -38,8 +38,9 @@ Route::prefix('/admin')->namespace("Admin")->group(function () {
         Route::get('user-update/{id}', 'AdminController@UpdateUserView')->name('admin.updateuserview');
 
         Route::post('user-update/{id}', 'AdminController@UpdateUser')->name('admin.updateuser');
-        
+
         Route::post('approve-user', 'AdminController@approveUser')->name('admin.approveuser');
+        Route::post('unpublish-user', 'AdminController@unpublishUser')->name('admin.unpublishuser');
         Route::post('remove-user', 'AdminController@removeUser')->name('admin.deleteuser');
     });
 });
