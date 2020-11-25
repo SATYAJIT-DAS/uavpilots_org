@@ -392,7 +392,8 @@ div.dt-buttons a.btn.processing:after {
 .bg-dark td,
 .bg-dark body,
 .bg-dark .dropdown-item,
-.bg-dark th {
+.bg-dark th,
+.bg-dark .form-control {
   color: #fff;
 }
 
@@ -471,7 +472,7 @@ table {
 }
 
 @media only screen and (max-device-width: 991px) {
-  .navbar-menu {
+  .navbar-menu-user {
     flex-direction: column !important;
   }
 }

@@ -1,9 +1,9 @@
 .avatar-wrapper{
+	display: flex;
 	position: relative;
 	height: 200px;
-	width: 200px;
+	width: auto;
 	margin: 50px auto;
-	border-radius: 50%;
 	overflow: hidden;
 	box-shadow: 1px 1px 15px -5px black;
 	transition: all .3s ease;
@@ -33,13 +33,13 @@
 	}
 	.upload-button {
 		position: absolute;
-		top: 0; left: 0;
+		top: 0; left: 40%;
 		height: 100%;
 		width: 100%;
 		.fa-arrow-circle-up{
 			position: absolute;
 			font-size: 234px;
-			top: -17px;
+			top: -14px;
 			left: 0;
 			text-align: center;
 			opacity: 0;

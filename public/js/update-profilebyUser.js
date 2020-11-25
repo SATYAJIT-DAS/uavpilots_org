@@ -81,50 +81,40 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/update-profile-picture.js":
-/*!************************************************!*\
-  !*** ./resources/js/update-profile-picture.js ***!
-  \************************************************/
+/***/ "./resources/js/update-profilebyUser.js":
+/*!**********************************************!*\
+  !*** ./resources/js/update-profilebyUser.js ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-  // $('.profile-pic').attr('src', e.target.result);
-  var readURL = function readURL(input) {
-    if (input.files && input.files[0]) {
-      var reader = new FileReader();
+  $(".changepass").click(function (e) {
+    event.preventDefault();
 
-      reader.onload = function (e) {
-        $('.profile-pic').attr('src', e.target.result);
-      };
-
-      reader.readAsDataURL(input.files[0]);
+    if ($('.passchangeinput').css('display') == 'none') {
+      $(".passchangeinput").css("display", "block"); // $(".changepass").css("background-color","black");
+    } else {
+      $(".passchangeinput").css("display", "none"); // $(".changepass").css("background-color","blue");
     }
-  };
-
-  $(".file-upload").on('change', function () {
-    readURL(this);
-  });
-  $(".upload-button").on('click', function () {
-    $(".file-upload").click();
   });
 });
 
 /***/ }),
 
-/***/ 1:
-/*!******************************************************!*\
-  !*** multi ./resources/js/update-profile-picture.js ***!
-  \******************************************************/
+/***/ 2:
+/*!****************************************************!*\
+  !*** multi ./resources/js/update-profilebyUser.js ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\apps\xampp_2020\htdocs\Uavpilots_main\resources\js\update-profile-picture.js */"./resources/js/update-profile-picture.js");
+module.exports = __webpack_require__(/*! D:\apps\xampp_2020\htdocs\Uavpilots_main\resources\js\update-profilebyUser.js */"./resources/js/update-profilebyUser.js");
 
 
 /***/ })

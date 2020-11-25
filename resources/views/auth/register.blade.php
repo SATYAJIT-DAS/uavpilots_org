@@ -15,7 +15,7 @@
       </a>
       <!-- / brand -->
     </div>
-    <div class="card">
+    <div class="card"> 
       <div id="content-body">
         <div class="p-3 p-md-5">
           <h5>Welcome </h5>

@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-// use Auth;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Admin;
 use App\Http\Requests\UploadAdminProfile;
@@ -12,6 +11,7 @@ use App\Models\UserData;
 use App\Models\User;
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -127,16 +127,20 @@ class AdminController extends Controller
 
     public function UpdateUser($id, Request $data)
     {
-        // if ($request->hasFile('image')) {
-
-        //     Admin::uploadimage($data->image);
-
-        //     return back()->with('success', 'Image Upload successfully');
-        // } else {
-
-        //     return back()->with('error', 'There was an error');
-        // }
-        $update_status = UserData::where('user_id', $data->id)
+        if ($data->hasFile('user_image')) {
+            $profileImage = $data->file('user_image');
+            $filename = time() . '.' . $profileImage->getClientOriginalExtension();
+            $profileImage->storeAs('users/images', $filename, 'public');
+            $userdata = $this->userDetails($id);
+            if (!empty($userdata->user_image)) {
+                Storage::delete('/public/users/images/' . $userdata->user_image);
+            }
+            UserData::where('user_id', $data->id)
+                ->update([
+                    'user_image' => $filename,
+                ]);
+        }
+        UserData::where('user_id', $data->id)
             ->update([
                 'first_name' => $data->first_name,
                 'last_name' => $data->last_name,
@@ -150,10 +154,10 @@ class AdminController extends Controller
                 'instagram_link' => $data->instagram_link,
             ]);
 
-        $usersdata = $this->userDetails($id);
+        $userdata = $this->userDetails($id);
         $adminDetails = $this->getAdminDetails();
 
-        return view('layouts.admin.update_profile', compact('usersdata', 'adminDetails'));
+        return view('layouts.admin.update_profile', compact('userdata', 'adminDetails'));
     }
 
     protected function userDetails($id)

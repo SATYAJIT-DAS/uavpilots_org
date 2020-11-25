@@ -14,7 +14,11 @@
           </div>
           @endif
 
-          {{ __('You are logged in!') }}
+          <h5>{{ __('You are logged in!') }}</h5>
+          <h6>{{ __('Welcome onboard You can update your profile from here ') }}</h6>
+          <a href="{{ route('user.editProfileView',Auth::user()->id) }}">
+                {{ __('Edit Profile') }}
+          </a>
         </div>
       </div>
     </div>

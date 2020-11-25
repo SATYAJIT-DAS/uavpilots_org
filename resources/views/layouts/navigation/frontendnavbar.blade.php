@@ -5,7 +5,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navtoggle">
-            <ul class="nav navbar-menu order-1 order-lg-2">
+            <ul class="nav navbar-menu navbar-menu-user order-1 order-lg-2">
                 <li class="nav-item dropdown">
                         <a class="nav-link"  href="{{ route('homepage') }}">
                            Home
@@ -38,19 +38,21 @@
                         </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('user.editProfileView',Auth::user()->id) }}">
+                        {{ __('Edit Profile') }}
+                        </a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                         </a>
-
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
                     </div>
                 </li>
                 @endguest
-            <ul class="nav navbar-menu order-1 order-lg-2">
+            <ul class="nav navbar-menu  order-1 order-lg-2">
                 <li class="nav-item d-none d-sm-block">
                     <a class="nav-link px-2" data-toggle="fullscreen" data-plugin="fullscreen">
                     <i data-feather="maximize"></i>

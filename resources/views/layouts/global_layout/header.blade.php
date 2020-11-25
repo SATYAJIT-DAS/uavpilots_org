@@ -12,6 +12,9 @@
         <link rel="stylesheet" href="{{ asset('css/basik_css/theme.css') }}" type="text/css" />
         <link rel="stylesheet" href="{{ asset('css/basik_css/style.css') }}" type="text/css" />
         <link rel="stylesheet" href="{{ asset('css/app.css') }}" type="text/css" />
+
+        <link rel="stylesheet" href="{{ asset('css/update-profile-picture.css') }}" type="text/css" />
+        
         @if (Request::is('admin/*'))
             <link rel="stylesheet" href="{{asset('/dropzone/dist/min/dropzone.min.css')}}">
             <link rel="stylesheet" href="{{asset('/dropzone/dist/min/dropzone.min.js')}}">

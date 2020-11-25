@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+    // $('.profile-pic').attr('src', e.target.result);
 	
     var readURL = function(input) {
         if (input.files && input.files[0]) {
