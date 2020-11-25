@@ -32,7 +32,7 @@ class AdminController extends Controller
         return view('layouts.admin.settings', compact('adminDetails'));
     }
 
-    protected function getAdminDetails()
+    public static function getAdminDetails()
     {
         $adminDetails = Admin::where('email', Auth::guard('admin')->user()->email)->first();
         return $adminDetails;
@@ -99,7 +99,7 @@ class AdminController extends Controller
             ->addColumn('action', function ($usersdata) {
 
                 $action = '<a class="btn btn-success m-1" href="' . route('admin.updateuserview', $usersdata->id) . '">Edit</a>';
-                $action .= '<button type="button"  class="btn btn-success m-1 unpublish-button"  id="' . $usersdata->id . '"> Unpublish</a>';
+                $action .= '<button type="button"  class="btn btn-warning m-1 unpublish-button"  id="' . $usersdata->id . '"> Unpublish</a>';
                 $action .=
                     '<button type="button"  class="btn btn-danger m-1 delete-active-user-button "  id="' . $usersdata->id . '"> Delete</a>';
                 $action .= '<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">';

@@ -34,6 +34,7 @@ Route::prefix('/admin')->namespace("Admin")->group(function () {
     Route::group(['middleware' => ['admin']], function () {
         Route::get('dashboard', 'AdminController@dashboard')->name('admin.dashboard');
         Route::get('settings', 'AdminController@settings')->name('admin.settings');
+        Route::get('page-settings', 'SettingsController@index')->name('admin.pagesettings');
         Route::post('check-current-pwd', 'AdminController@chkCurrentPwd');
         Route::post('update-pwd', 'AdminController@updatePwd');
         Route::post('update-profile-img', 'AdminController@updateProfileimg')->name('admin.profile.img');

@@ -46,7 +46,7 @@
         </div>
         <div class="row row-sm sr">
             <div class="col-12">
-                <h2 class="text-md text-highlight p-2 mb-2">Active user List</h2>
+                <h2 class="text-md text-highlight p-2 mb-2">Active User List</h2>
             </div>
           <div class="col-md-12 col-lg-12">
             <div class="card">

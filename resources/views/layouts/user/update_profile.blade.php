@@ -10,10 +10,12 @@
                 </h2>
                 </legend>
                 <div class="avatar-wrapper">
-                    {{-- <img class="profile-pic" src="{{$userdata->image}}" /> --}}
                     @if (!empty($userdata->user_image))
                         <img src="{{asset('storage/users/images/'.$userdata->user_image)}}" class="img-fluid profile-pic" alt="Responsive image">
+                    @else
+                        <img src="{{ asset('img/talking-3.jpg') }}" class="img-fluid profile-pic" alt="Responsive image">
                     @endif
+
                     <div class="upload-button">
                         <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
                     </div>

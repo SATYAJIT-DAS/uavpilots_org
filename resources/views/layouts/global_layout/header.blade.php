@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}" type="text/css" />
 
         <link rel="stylesheet" href="{{ asset('css/update-profile-picture.css') }}" type="text/css" />
-        
+
         @if (Request::is('admin/*'))
             <link rel="stylesheet" href="{{asset('/dropzone/dist/min/dropzone.min.css')}}">
             <link rel="stylesheet" href="{{asset('/dropzone/dist/min/dropzone.min.js')}}">
@@ -29,7 +29,6 @@
         <!-- endbuild -->
         {{-- scroll reveal js --}}
         <script src="https://unpkg.com/scrollreveal"></script>
-        <script type="text/javascript"> (function() { var css = document.createElement('script'); css.src = 'https://use.fontawesome.com/38dfb36663.js';  document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
     </head>
     @if (Request::is('admin/*'))
         <body class="layout-row">

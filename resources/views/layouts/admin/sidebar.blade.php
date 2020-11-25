@@ -28,6 +28,12 @@
               <span class="nav-text">Dashboard</span>
             </a>
           </li>
+          <li>
+            <a href="{{route('admin.pagesettings')}}">
+              <span class="nav-icon text-primary"><i data-feather='settings'></i></span>
+              <span class="nav-text">Settings</span>
+            </a>
+          </li>
         </ul>
       </div>
     </div>

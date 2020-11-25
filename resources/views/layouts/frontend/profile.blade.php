@@ -39,21 +39,21 @@
                         @if (!empty($userdata->fb_link))
                             <li class="list-inline-item">
                                 <a class="font-22" target="_blank" href="{{$userdata->fb_link}}">
-                                    <i class="fa fa-facebook fa-lg white-text mr-4"> </i>
+                                    <i data-feather='facebook'></i>
                                 </a>
                             </li>
                         @endif
                         @if (!empty($userdata->twitter_link))
                             <li class="list-inline-item">
                                 <a class="font-22" target="_blank" href="{{$userdata->twitter_link}}">
-                                    <i class="fa fa-twitter fa-lg  mr-4"> </i>
+                                    <i data-feather='twitter'></i>
                                 </a>
                             </li>
                         @endif
                         @if (!empty($userdata->instagram_link))
                             <li class="list-inline-item">
                                 <a class="font-22" target="_blank" href="{{$userdata->instagram_link}}">
-                                    <i class="fa fa-instagram fa-lg mr-4"> </i>
+                                    <i data-feather='instagram'></i>
                                 </a>
                             </li>
                         @endif

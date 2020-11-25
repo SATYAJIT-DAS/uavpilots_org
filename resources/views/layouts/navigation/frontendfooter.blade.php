@@ -17,17 +17,17 @@
           <ul class="list-unstyled list-inline text-center">
             <li class="list-inline-item">
               <a class="btn-floating btn-fb mx-1">
-                  <i class="fa fa-facebook-f fa-lg white-text mr-4"> </i>
+                  <i data-feather='facebook'></i>
               </a>
             </li>
             <li class="list-inline-item">
               <a class="btn-floating btn-tw mx-1">
-                  <i class="fa fa-twitter fa-lg white-text mr-4"> </i>
+                  <i data-feather='twitter'></i>
               </a>
             </li>
             <li class="list-inline-item">
               <a class="btn-floating btn-gplus mx-1">
-                  <i class="fa fa-instagram fa-lg white-text mr-4"> </i>
+                  <i data-feather='instagram'></i>
               </a>
             </li>
           </ul>
