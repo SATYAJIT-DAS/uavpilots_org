@@ -37,9 +37,11 @@ class SettingsController extends Controller
 
     protected function getPageSettings()
     {
-        $pageSettings = PageSetting::get();
+        $pageSettings = PageSetting::get()->first();
         return $pageSettings;
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -91,10 +93,36 @@ class SettingsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function updatePageSettings(Request $request)
+    {   
+        $pageSettings = PageSetting::get()->first();
+
+        if ($request->hasFile('home_image')) {
+            $home_image = $request->file('home_image');
+            $filename = time() . '.' . $home_image->getClientOriginalExtension();
+            $home_image->storeAs('img/', $filename,'page_image');
+            PageSetting::where('id', $pageSettings->id)
+                ->update([
+                    'home_image' => $filename,
+                ]);
+        }
+
+
+        PageSetting::where('id', $pageSettings->id)
+            ->update([
+                
+                'fb_link' => $request->fb_link,
+                'twitter_link' => $request->twitter_link,
+                'instragram_link' => $request->instragram_link,
+            ]);
+
+        $pageSettings = PageSetting::get()->first();
+        $adminDetails = AdminController::getAdminDetails();
+        return view('layouts.admin.pagesettings', compact('pageSettings', 'adminDetails'));
     }
+
+
+    // }
 
     /**
      * Remove the specified resource from storage.
