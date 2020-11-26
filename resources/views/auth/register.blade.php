@@ -85,7 +85,7 @@
               <label>Upload Photo:</label>
               <div class="custom-file mb-3 form-control">
                 <label class="custom-file-label photouploadinput" for="customFile">Choose file</label>
-                <input type="file" class="custom-file-input form-control photouploadinput" id="customFile" name="user_image" required data-parsley-max-file-size="6">
+                <input type="file" class="custom-file-input form-control photouploadinput" id="customFile" name="user_image" required data-parsley-max-file-size="6" >
               </div>
             </div>
 

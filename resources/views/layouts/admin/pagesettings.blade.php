@@ -23,7 +23,7 @@
 
 
 
-                        <div class="avatar-wrapper avatar-wrapper-fix">
+                        <div class="avatar-wrapper">
                             <img src="{{asset('img/'.$pageSettings->home_image)}}" class="img-fluid profile-pic" alt="Responsive image">
                             <div class="upload-button">
                                 <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>

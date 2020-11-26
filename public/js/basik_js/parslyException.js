@@ -16,6 +16,9 @@ window.Parsley.addValidator("maxFileSize", {
         fr: "Ce fichier est plus grand que %s Mb."
     }
 });
+
+
+
 $(".custom-file-input").on("change", function() {
     let fileName = $(this)
         .val()
