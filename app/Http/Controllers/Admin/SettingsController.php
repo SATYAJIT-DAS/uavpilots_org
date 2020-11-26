@@ -94,31 +94,46 @@ class SettingsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function updatePageSettings(Request $request)
-    {   
+    {
         $pageSettings = PageSetting::get()->first();
-
-        if ($request->hasFile('home_image')) {
-            $home_image = $request->file('home_image');
-            $filename = time() . '.' . $home_image->getClientOriginalExtension();
-            $home_image->storeAs('img/', $filename,'page_image');
-            PageSetting::where('id', $pageSettings->id)
-                ->update([
+        if (is_null($pageSettings)) {
+            if ($request->hasFile('home_image')) {
+                $home_image = $request->file('home_image');
+                $filename = time() . '.' . $home_image->getClientOriginalExtension();
+                $home_image->storeAs('img/', $filename, 'page_image');
+                $data = PageSetting::create([
                     'home_image' => $filename,
                 ]);
+            }
+            PageSetting::where('id', $data->id)
+                ->update([
+                    'fb_link' => $request->fb_link,
+                    'twitter_link' => $request->twitter_link,
+                    'instragram_link' => $request->instragram_link,
+                ]);
+        } else {
+
+            if ($request->hasFile('home_image')) {
+                $home_image = $request->file('home_image');
+                $filename = time() . '.' . $home_image->getClientOriginalExtension();
+                $home_image->storeAs('img/homepage/', $filename, 'page_image');
+                if (!empty($pageSettings->home_image)) {
+                    $image_path = public_path() . '/img/homepage/' . $pageSettings->home_image;
+                    unlink($image_path);
+                }
+                PageSetting::where('id', $pageSettings->id)
+                    ->update([
+                        'home_image' => $filename,
+                    ]);
+            }
+            PageSetting::where('id', $pageSettings->id)
+                ->update([
+                    'fb_link' => $request->fb_link,
+                    'twitter_link' => $request->twitter_link,
+                    'instragram_link' => $request->instragram_link,
+                ]);
         }
-
-
-        PageSetting::where('id', $pageSettings->id)
-            ->update([
-                
-                'fb_link' => $request->fb_link,
-                'twitter_link' => $request->twitter_link,
-                'instragram_link' => $request->instragram_link,
-            ]);
-
-        $pageSettings = PageSetting::get()->first();
-        $adminDetails = AdminController::getAdminDetails();
-        return view('layouts.admin.pagesettings', compact('pageSettings', 'adminDetails'));
+        return redirect()->back()->with('success', 'Settings Updated Successfully');
     }
 
 

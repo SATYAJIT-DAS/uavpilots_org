@@ -18,9 +18,6 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', 'FrontendController@homepage')->name('homepage');
 Route::get('/userdata', 'FrontendController@getBasicData')->name('userdata');
 Route::get('/profile/{slug}', 'FrontendController@singleUser')->name('profile');
-
-// Route::get('edit-profile/{id}', 'AdminController@UpdateUserView')->name('admin.updateuserview');
-
 Route::post('/check-user-name-availability', 'AjaxController@checkusername');
 Auth::routes();
 Route::group(['middleware' => 'auth', 'namespace' => 'User'], function () {
@@ -35,9 +32,7 @@ Route::prefix('/admin')->namespace("Admin")->group(function () {
         Route::get('dashboard', 'AdminController@dashboard')->name('admin.dashboard');
         Route::get('settings', 'AdminController@settings')->name('admin.settings');
         Route::get('page-settings', 'SettingsController@index')->name('admin.pagesettings');
-
         Route::post('page-settings', 'SettingsController@updatePageSettings')->name('admin.updatepagesettings');
-
         Route::post('check-current-pwd', 'AdminController@chkCurrentPwd');
         Route::post('update-pwd', 'AdminController@updatePwd');
         Route::post('update-profile-img', 'AdminController@updateProfileimg')->name('admin.profile.img');

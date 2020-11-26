@@ -384,6 +384,10 @@ div.dt-buttons a.btn.processing:after {
   background-color: #fff;
 }
 
+.dropdown-menu {
+  left: -74px !important;
+}
+
 .img-fluid {
   max-width: 100%;
   height: 70vh !important;
