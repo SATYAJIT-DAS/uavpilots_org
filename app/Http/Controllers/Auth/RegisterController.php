@@ -56,7 +56,7 @@ class RegisterController extends Controller
             'username' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'user_image' => ['required | mimes:jpeg,jpg,png | max:1000'],
+            'user_image' => ['required'],
         ]);
     }
 
@@ -79,7 +79,7 @@ class RegisterController extends Controller
             $profileImage = $request->file('user_image');
             $filename = time() . '.' . $profileImage->getClientOriginalExtension();
             $profileImage->storeAs('users/images', $filename, 'public');
-            $UserData = UserData::insert([
+            UserData::insert([
                 'user_id' => $user->id,
                 'user_image' => $filename,
                 'username' => $data['username'],
