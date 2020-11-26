@@ -275,7 +275,9 @@ $(function () {
 // require("./bootstrap");
 __webpack_require__(/*! ./frontendDatatable */ "./resources/js/frontendDatatable.js");
 
-__webpack_require__(/*! ./adminDatatable */ "./resources/js/adminDatatable.js"); // require("./approveDecline");
+__webpack_require__(/*! ./adminDatatable */ "./resources/js/adminDatatable.js");
+
+__webpack_require__(/*! ./updateProfilePicture */ "./resources/js/updateProfilePicture.js"); // require("./approveDecline");
 // window.Vue = require("vue");
 // /**
 //  * The following block of code may be used to automatically register your
@@ -344,6 +346,36 @@ $(function () {
 
 /***/ }),
 
+/***/ "./resources/js/updateProfilePicture.js":
+/*!**********************************************!*\
+  !*** ./resources/js/updateProfilePicture.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  var readURL = function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $(".profile-pic").attr("src", e.target.result);
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  };
+
+  $(".file-upload").on("change", function () {
+    readURL(this);
+  });
+  $(".upload-button").on("click", function () {
+    $(".file-upload").click();
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -355,27 +387,15 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/sass/update-profile-picture.scss":
-/*!****************************************************!*\
-  !*** ./resources/sass/update-profile-picture.scss ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ 0:
-/*!**********************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/update-profile-picture.scss ./resources/sass/app.scss ***!
-  \**********************************************************************************************************/
+/*!*************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/farabi/uavpilots_org/uavpilots_org/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/farabi/uavpilots_org/uavpilots_org/resources/sass/update-profile-picture.scss */"./resources/sass/update-profile-picture.scss");
-module.exports = __webpack_require__(/*! /home/farabi/uavpilots_org/uavpilots_org/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\apps\xampp_2020\htdocs\Uavpilots_main\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\apps\xampp_2020\htdocs\Uavpilots_main\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -15,9 +15,9 @@
                         <img src="{{asset('storage/users/images/'.$userdata->user_image)}}" class="img-fluid profile-pic" alt="Responsive image">
                     @endif
                     <div class="upload-button">
-                        <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                        <i data-feather='upload'></i>
                     </div>
-                    <input class="file-upload" type="file" accept="image/*" name="user_image" id="image" />
+                    <input class="file-upload" hidden type="file" accept="image/*" name="user_image" id="image" />
                 </div>
                 <div class="form-group">
                     <label class="col-md-12 control-label">First Name</label>
