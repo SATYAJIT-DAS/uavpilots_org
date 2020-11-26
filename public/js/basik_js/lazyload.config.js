@@ -110,6 +110,7 @@ var MODULE_CONFIG = {
     parsley: [ 
         "../libs/parsleyjs/dist/parsley.min.js",
         "./js/basik_js/parslyException.js",
+        "../js/basik_js/parslyException.js",
         "./js/basik_js/userNameAvailabilty.js",
         "./js/basik_js/update-profile-admin.js"
     ],

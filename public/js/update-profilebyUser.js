@@ -114,7 +114,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\apps\xampp_2020\htdocs\Uavpilots_main\resources\js\update-profilebyUser.js */"./resources/js/update-profilebyUser.js");
+module.exports = __webpack_require__(/*! /home/farabi/uavpilots_org/uavpilots_org/resources/js/update-profilebyUser.js */"./resources/js/update-profilebyUser.js");
 
 
 /***/ })
