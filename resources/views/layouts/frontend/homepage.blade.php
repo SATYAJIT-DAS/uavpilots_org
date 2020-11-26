@@ -6,7 +6,7 @@
         <div class="padding">
             <div class="block p-md-3 ">
                 @if (!empty($pageSetting->home_image))
-                    <img src="{{ asset('img/'.$pageSetting->home_image) }}" class="img-fluid" alt="Responsive image">
+                    <img src="{{ asset('img/homepage/'.$pageSetting->home_image) }}" class="img-fluid" alt="Responsive image">
                 @else
                     <img src="{{asset('img/talking-3.jpg')}}" class="img-fluid" alt="Responsive image">
                 @endif

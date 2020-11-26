@@ -390,7 +390,7 @@ div.dt-buttons a.btn.processing:after {
 
 .img-fluid {
   max-width: 100%;
-  height: 70vh !important;
+  width: 100%;
 }
 
 .bg-dark td,
