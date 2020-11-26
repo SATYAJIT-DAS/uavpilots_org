@@ -7,6 +7,7 @@
 // require("./bootstrap");
 require("./frontendDatatable");
 require("./adminDatatable");
+require("./updateProfilePicture");
 // require("./approveDecline");
 
 // window.Vue = require("vue");

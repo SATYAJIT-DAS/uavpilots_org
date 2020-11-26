@@ -1,7 +1,4 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/update-profile-picture.css": "/css/update-profile-picture.css",
-    "/css/app.css": "/css/app.css",
-    "/js/update-profile-picture.js": "/js/update-profile-picture.js",
-    "/js/update-profilebyUser.js": "/js/update-profilebyUser.js"
+    "/css/app.css": "/css/app.css"
 }

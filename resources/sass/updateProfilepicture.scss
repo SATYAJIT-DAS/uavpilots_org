@@ -1,7 +1,7 @@
 .avatar-wrapper{
 	display: flex;
 	position: relative;
-	height: 30vh;
+	height: 250px;
 	width: auto;
 	margin: 50px auto;
 	overflow: hidden;
@@ -19,9 +19,7 @@
 		width: 100%;
 		transition: all .3s ease;
 		&:after{
-			font-family: FontAwesome;
-			content: "\f007";
-			top: 0; left: 0;
+			top: 10%; left: 40%;
 			width: 100%;
 			height: 100%;
 			position: absolute;
@@ -36,18 +34,20 @@
 		top: 0; left: 0;
 		height: 100%;
 		width: 100%;
-		.fa-arrow-circle-up{
-			position: absolute;
-			font-size: 234px;
-			top: 10%;
-			left: 40%;
+		svg{
+            position: absolute;
+			width: 4em;
+			height: 4em;
+			top: 50%;
+			left: 50%;
 			text-align: center;
 			opacity: 0;
 			transition: all .3s ease;
-			color: #34495e;
+			color: #fff;
 		}
-		&:hover .fa-arrow-circle-up{
+		&:hover svg{
 			opacity: .9;
 		}
 	}
 }
+

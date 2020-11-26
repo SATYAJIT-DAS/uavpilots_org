@@ -35,9 +35,7 @@
 @endif
 <script src = "https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js" defer ></script>
 <script src = "https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js" defer ></script>
-<script src="{{asset('js/app.js')}}"></script>   
-<script src="{{asset('js/update-profile-picture.js')}}"></script> 
-<script src="{{asset('js/update-profilebyUser.js')}}"></script> 
+<script src="{{asset('js/app.js')}}"></script>
     </body>
 </html>
 

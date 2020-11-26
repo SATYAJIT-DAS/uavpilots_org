@@ -11,10 +11,7 @@ const mix = require("laravel-mix");
  |
  */
 
-mix.js("resources/js/app.js", "public/js")
-   .js("resources/js/update-profile-picture.js", "public/js")
-   .js("resources/js/update-profilebyUser.js", "public/js")
-   .sass("resources/sass/update-profile-picture.scss","public/css")
-   .sass("resources/sass/app.scss","public/css");
-
-
+mix.js("resources/js/app.js", "public/js").sass(
+    "resources/sass/app.scss",
+    "public/css"
+);
