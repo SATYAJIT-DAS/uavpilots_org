@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\UserData;
+use App\Models\PageSetting;
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\DB;
-
+ 
 class FrontendController extends Controller
 {
     //
     public function homepage()
-    {
-        return view('layouts.frontend.homepage');
+    {   
+        $pageSetting = PageSetting::get()->first();
+        return view('layouts.frontend.homepage',compact('pageSetting'));
     }
     public function getBasicData()
     {

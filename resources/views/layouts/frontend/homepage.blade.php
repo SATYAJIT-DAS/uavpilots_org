@@ -1,13 +1,14 @@
+
 @extends('layouts.frontend.frontend_layout')
 @section('content')
     <div class="page-content page-container" id="page-content">
         <section class="slider position-relative">
         <div class="padding">
             <div class="block p-md-3 ">
-                @if (1==1)
-                    <img src="{{ asset('img/talking-3.jpg') }}" class="img-fluid" alt="Responsive image">
+                @if (!empty($pageSetting->home_image))
+                    <img src="{{ asset('img/'.$pageSetting->home_image) }}" class="img-fluid" alt="Responsive image">
                 @else
-                    <img src="{{asset('storage/users/images/'.$userdata->user_image)}}" class="img-fluid" alt="Responsive image">
+                    <img src="{{asset('img/talking-3.jpg')}}" class="img-fluid" alt="Responsive image">
                 @endif
             </div>
         </div>
