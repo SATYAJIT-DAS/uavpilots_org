@@ -22,7 +22,6 @@
                             <table class="table table-hover user-data">
                                 <thead>
                                     <tr>
-                                        <th>id</th>
                                         <th>Name</th>
                                         <th>Industry</th>
                                         <th>Location</th>

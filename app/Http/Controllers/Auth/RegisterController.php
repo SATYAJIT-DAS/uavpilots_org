@@ -56,7 +56,11 @@ class RegisterController extends Controller
             'username' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'user_image' => ['required','mimetypes:image/jpeg,image/jpg,image/png,image/webp'],
+            'user_image' => ['required', 'mimetypes:image/jpeg,image/jpg,image/png,image/webp'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'phone_number' => ['required', 'string', 'max:255'],
+            'website' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -69,6 +73,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
+
         DB::beginTransaction();
         try {
             $user = User::create([
@@ -79,6 +84,7 @@ class RegisterController extends Controller
             $profileImage = $request->file('user_image');
             $filename = time() . '.' . $profileImage->getClientOriginalExtension();
             $profileImage->storeAs('users/images', $filename, 'public');
+
             UserData::insert([
                 'user_id' => $user->id,
                 'user_image' => $filename,
@@ -88,7 +94,9 @@ class RegisterController extends Controller
                 'description' => $data['description'],
                 'state' => $data['state'],
                 'country' => $data['country'],
-                'industry' => $data['industry']
+                'industry' => $data['industry'],
+                'phone_number' => $data['phone_number'],
+                'website' => $data['website'],
             ]);
             DB::commit();
         } catch (\Exception $e) {

@@ -18,6 +18,8 @@ class UserDataSeeder extends Seeder
             $records[$i] = [
                 'user_id' => $i + 1,
                 'username' => $faker->unique()->firstName,
+                'phone_number' => $faker->unique()->phoneNumber,
+                'website' => $faker->url,
                 'first_name' => $faker->firstName,
                 'last_name' => $faker->lastName,
                 'description' => $faker->text(200),

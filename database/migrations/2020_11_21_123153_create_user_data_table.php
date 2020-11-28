@@ -23,6 +23,8 @@ class CreateUserDataTable extends Migration
             $table->string('last_name', 100);
             $table->string('username')->unique();
             $table->longText('description');
+            $table->string('phone_number', 255);
+            $table->string('website', 255);
             $table->string('state', 255);
             $table->string('country', 255);
             $table->string('industry', 255);

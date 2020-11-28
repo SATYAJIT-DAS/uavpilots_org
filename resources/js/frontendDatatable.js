@@ -4,7 +4,6 @@ $(function() {
         serverSide: true,
         ajax: "userdata",
         columns: [
-            { data: "id", name: "id" },
             { data: "name", name: "name" },
             { data: "industry", name: "industry" },
             { data: "location", name: "location" }

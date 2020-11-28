@@ -15,7 +15,7 @@
       </a>
       <!-- / brand -->
     </div>
-    <div class="card"> 
+    <div class="card">
       <div id="content-body">
         <div class="p-3 p-md-5">
           <h5>Welcome </h5>
@@ -28,6 +28,10 @@
             <div class="form-group">
                 <label>Email:</label>
                 <input type="email" name="email" class="form-control" required >
+            </div>
+            <div class="form-group">
+                <label>Phone number:</label>
+                <input type="number" name="phone_number" class="form-control" required >
             </div>
             <div class="form-group">
                 <label>Enter password:</label>
@@ -87,6 +91,10 @@
                 <label class="custom-file-label photouploadinput" for="customFile">Choose file</label>
                 <input type="file" class="custom-file-input form-control photouploadinput" id="customFile" name="user_image" required data-parsley-max-file-size="6" >
               </div>
+            </div>
+            <div class="form-group">
+                <label>Add Website:</label>
+                <input type="url" name="website" class="form-control" required >
             </div>
 
             <div class="form-row mb-4">

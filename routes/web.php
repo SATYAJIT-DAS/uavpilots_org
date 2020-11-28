@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'FrontendController@homepage')->name('homepage');
 Route::get('/userdata', 'FrontendController@getBasicData')->name('userdata');
-Route::get('/profile/{slug}', 'FrontendController@singleUser')->name('profile');
+Route::get('/{slug}', 'FrontendController@singleUser')->where('slug', '^((?!login|admin|api|check-user-name-availability|edit-profile|email|home|password|register|userdata).)*$')->name('profile');
 Route::post('/check-user-name-availability', 'AjaxController@checkusername');
-Auth::routes();
-Route::group(['middleware' => 'auth', 'namespace' => 'User'], function () {
+Auth::routes(['verify' => true]);
+Route::group(['middleware' => ['auth', 'verified'], 'namespace' => 'User'], function () {
     Route::get('/home', 'UserController@index')->name('user.home');
     Route::get('/edit-profile/{id}', 'UserController@editProfile')->name('user.editProfileView');
     Route::post('edit-profile/{id}', 'UserController@updateProfile')->name('user.updateuser');

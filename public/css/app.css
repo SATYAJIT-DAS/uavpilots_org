@@ -384,7 +384,7 @@ div.dt-buttons a.btn.processing:after {
   background-color: #fff;
 }
 
-.dropdown-menu {
+.layout-coloum .dropdown-menu {
   left: -74px !important;
 }
 
