@@ -11,7 +11,7 @@ $(function() {
         scrollX: true,
         pagingType: "full",
         initComplete: function() {
-            var column = this.api().column(2);
+            var column = this.api().column(1);
             var select = $(
                 '<select class="ml-2 custom-select custom-select-sm form-control form-control-sm"><option value=""></option></select>'
             )
