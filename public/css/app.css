@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);table.dataTable {
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;
+
+0,400;1,300&display=swap);table.dataTable {
   clear: both;
   margin-top: 6px !important;
   margin-bottom: 6px !important;
@@ -379,6 +381,44 @@ div.dt-buttons a.btn.processing:after {
   -moz-animation: dtb-spinner 1500ms infinite linear;
 }
 @charset "UTF-8";
+.dataTables_paginate ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+body {
+  font-family: "Open Sans", sans-serif !important;
+}
+
+.dataTables_wrapper {
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 16px !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  line-height: 20px !important;
+}
+
+.dataTables_wrapper td {
+  color: #2C3033;
+}
+
+.dataTables_wrapper td:hover {
+  cursor: pointer;
+  color: #d23600;
+}
+
+.dataTables_wrapper td a {
+  color: #2C3033;
+}
+
+.dataTables_wrapper td a:hover {
+  text-decoration: none;
+  color: #d23600;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9 !important;
+}
 
 .bg-white {
   background-color: #fff;
@@ -391,26 +431,6 @@ div.dt-buttons a.btn.processing:after {
 .img-fluid {
   max-width: 100%;
   width: 100%;
-}
-
-.bg-dark td,
-.bg-dark body,
-.bg-dark .dropdown-item,
-.bg-dark th,
-.bg-dark .form-control {
-  color: #fff;
-}
-
-.bg-dark .navbar-toggler {
-  background-color: #fff !important;
-}
-
-.bg-dark .bg-secondary {
-  background: #192039 !important;
-}
-
-.bg-dark body {
-  background: #373c5f !important;
 }
 
 table {
@@ -473,6 +493,58 @@ table {
 
 .font-22 {
   font-size: 22px;
+}
+
+.bg-dark td,
+.bg-dark body,
+.bg-dark .dropdown-item,
+.bg-dark th,
+.bg-dark .form-control {
+  color: #fff;
+}
+
+.bg-dark .navbar-toggler {
+  background-color: #fff !important;
+}
+
+.bg-dark .bg-secondary {
+  background: #192039 !important;
+}
+
+.bg-dark body {
+  background: #373c5f !important;
+}
+
+.bg-dark .dataTables_wrapper {
+  font-family: "Open Sans" !important;
+  color: #fff !important;
+  font-size: 16px !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  line-height: 20px !important;
+}
+
+.bg-dark .dataTables_wrapper td :hover {
+  color: #d23600;
+}
+
+.bg-dark .dataTables_wrapper td a {
+  color: #fff;
+}
+
+.bg-dark .dataTables_wrapper td a:hover {
+  text-decoration: none;
+  color: #d23600;
+}
+
+.bg-dark .table-striped tbody tr:nth-of-type(odd) {
+  background-color: #373C5F !important;
+}
+
+.bg-dark .table-secondary,
+.bg-dark .table-secondary > th,
+.bg-dark .table-secondary > td {
+  background-color: #1c233f !important;
 }
 
 @media only screen and (max-device-width: 991px) {

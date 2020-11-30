@@ -9,11 +9,11 @@ $(function() {
             { data: "location", name: "location" }
         ],
         scrollX: true,
-        pagingType: "full",
+        pagingType: "full_numbers",
         initComplete: function() {
             var column = this.api().column(1);
-            var select = $(
-                '<select class="ml-2 custom-select custom-select-sm form-control form-control-sm"><option value=""></option></select>'
+            let select = $(
+                '<select class="m-2 custom-select custom-select-sm form-control form-control-sm"><option value=""></option></select>'
             )
                 .appendTo($("#DataTables_Table_0_length"))
                 .on("change", function() {

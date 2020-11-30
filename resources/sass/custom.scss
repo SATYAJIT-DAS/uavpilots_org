@@ -1,6 +1,42 @@
-// .dataTables_wrapper{
-//     overflow-x: auto!important;
-// }
+.dataTables_paginate{
+    ul{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+body{
+    font-family: 'Open Sans', sans-serif !important;
+}
+.dataTables_wrapper{
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 16px!important;
+    font-style: normal!important;
+    font-weight: 400!important;
+    line-height: 20px!important;
+    td{
+        color: #2C3033 ;
+        &:hover{
+            cursor: pointer;
+            color: #d23600;
+        }
+        a{
+            color: #2C3033;
+        }
+        a:hover{
+            text-decoration: none;
+            color: #d23600;
+        }
+    }
+}
+
+
+.table-striped{
+    tbody{
+        tr:nth-of-type(odd){
+             background-color: #f9f9f9!important;
+        }
+    }
+}
 .bg-white{
     background-color: $white;
 }
@@ -13,20 +49,7 @@
     // height: 70vh!important;
 }
 
-.bg-dark {
-    td,body,.dropdown-item,th,.form-control{
-        color:#fff;
-    }
-    .navbar-toggler{
-        background-color: #fff !important;
-    }
-    .bg-secondary{
-        background: #192039 !important;
-    }
-    body{
-        background: #373c5f !important;
-    }
-}
+
 table{
     width: 100%!important;
 }
@@ -82,4 +105,48 @@ table{
 }
 .font-22{
     font-size: 22px;
+}
+.bg-dark {
+    td,body,.dropdown-item,th,.form-control{
+        color:#fff;
+    }
+    .navbar-toggler{
+        background-color: #fff !important;
+    }
+    .bg-secondary{
+        background: #192039 !important;
+    }
+    body{
+        background: #373c5f !important;
+    }
+    .dataTables_wrapper{
+        font-family: 'Open Sans'!important;
+        color:#fff!important;
+        font-size: 16px!important;
+        font-style: normal!important;
+        font-weight: 400!important;
+        line-height: 20px!important;
+        td{
+            :hover{
+              color: #d23600;
+            }
+            a{
+                color: #fff;
+            }
+            a:hover{
+                text-decoration: none;
+                color: #d23600;
+            }
+        }
+    }
+    .table-striped{
+        tbody{
+            tr:nth-of-type(odd){
+                background-color: #373C5F!important;
+            }
+        }
+    }
+    .table-secondary, .table-secondary > th, .table-secondary > td{
+        background-color: #1c233f!important;
+    }
 }

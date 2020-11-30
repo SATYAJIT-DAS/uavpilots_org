@@ -19,9 +19,9 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <table class="table table-hover user-data">
+                            <table class="table table-striped user-data">
                                 <thead>
-                                    <tr>
+                                    <tr class="table-secondary">
                                         <th>Name</th>
                                         <th>Industry</th>
                                         <th>Location</th>

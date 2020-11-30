@@ -327,10 +327,10 @@ $(function () {
       name: "location"
     }],
     scrollX: true,
-    pagingType: "full",
+    pagingType: "full_numbers",
     initComplete: function initComplete() {
       var column = this.api().column(1);
-      var select = $('<select class="ml-2 custom-select custom-select-sm form-control form-control-sm"><option value=""></option></select>').appendTo($("#DataTables_Table_0_length")).on("change", function () {
+      var select = $('<select class="m-2 custom-select custom-select-sm form-control form-control-sm"><option value=""></option></select>').appendTo($("#DataTables_Table_0_length")).on("change", function () {
         var val = $.fn.dataTable.util.escapeRegex($(this).val());
         column.search(val ? "^" + val + "$" : "", true, false).draw();
       });

@@ -25,8 +25,6 @@
                         <div class="avatar-wrapper avatar-wrapper-fix">
                             @if (!empty($pageSettings->home_image))
                                 <img src="{{asset('img/homepage/'.$pageSettings->home_image)}}" class="img-fluid profile-pic" alt="Responsive image">
-                            @else
-                                <img src="" class="img-fluid profile-pic" alt="Responsive image">
                             @endif
                             <div class="upload-button">
                                 <i data-feather='upload'></i>

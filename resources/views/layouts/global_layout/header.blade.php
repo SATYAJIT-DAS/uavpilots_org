@@ -18,11 +18,12 @@
             <link rel="stylesheet" href="{{asset('/dropzone/dist/min/dropzone.min.js')}}">
         @endif
         @if (Request::is('/'))
-            <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+            {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css"> --}}
         @endif
         <!-- endbuild -->
         {{-- scroll reveal js --}}
-        <script src="https://unpkg.com/scrollreveal"></script>
+        <script src="https://unpkg.com/scrollreveal@4.0.7/dist/scrollreveal.js"></script>
+        {{-- scroll reveal  --}}
     </head>
     @if (Request::is('admin/*'))
         <body class="layout-row">
