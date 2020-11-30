@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', 'FrontendController@homepage')->name('homepage');
 Route::get('/userdata', 'FrontendController@getBasicData')->name('userdata');
 Route::get('/{slug}', 'FrontendController@singleUser')->where('slug', '^((?!login|admin|api|check-user-name-availability|edit-profile|email|home|password|register|userdata).)*$')->name('profile');
+// Route::post('/{slug}', 'FrontendController@singleUser')->where('slug', '^((?!login|admin|api|check-user-name-availability|edit-profile|email|home|password|register|userdata).)*$')->name('profile');
 Route::post('/check-user-name-availability', 'AjaxController@checkusername');
 Auth::routes(['verify' => true]);
 Route::group(['middleware' => ['auth', 'verified'], 'namespace' => 'User'], function () {

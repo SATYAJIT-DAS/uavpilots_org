@@ -70,8 +70,6 @@ class UserController extends Controller
                 'youtube_link' => $data->youtube_link,
                 'instagram_link' => $data->instagram_link,
             ]);
-
-        $userdata = $this->userDetails($id);
-        return view('layouts.user.update_profile', compact('userdata'));
+        return redirect()->back()->with('success', 'Settings Updated Successfully');
     }
 }

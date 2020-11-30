@@ -1,8 +1,11 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+    <div class="col-12">
+        <x-alert/>
+    </div>
     <div class="col-12 d-flex justify-content-center mt-5">
-        <form class="col-12" action="{{ route('user.updateuser', $userdata->id) }}" method="POST" enctype="multipart/form-data" id="contact_form">
+        <form class="col-12" action="{{ route('user.updateuser', $userdata->user_id) }}" method="POST" enctype="multipart/form-data" id="contact_form">
             @csrf
             <fieldset>
                 <legend>

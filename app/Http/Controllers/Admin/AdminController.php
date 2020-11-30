@@ -154,10 +154,7 @@ class AdminController extends Controller
                 'instagram_link' => $data->instagram_link,
             ]);
 
-        $userdata = $this->userDetails($id);
-        $adminDetails = $this->getAdminDetails();
-
-        return view('layouts.admin.update_profile', compact('userdata', 'adminDetails'));
+        return redirect()->back()->with('success', 'Settings Updated Successfully');
     }
 
     protected function userDetails($id)
