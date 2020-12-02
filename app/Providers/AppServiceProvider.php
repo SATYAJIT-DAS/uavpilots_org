@@ -28,8 +28,8 @@ class AppServiceProvider extends ServiceProvider
             "car" => "Car Racing",
             "agriculture" => "Agriculture",
             "film" => "Film",
-            "automobile " => "Auto Mobile",
-            "photography " => "Photography",
+            "automobile" => "Auto Mobile",
+            "photography" => "Photography",
         ];
         view()->share('industries_select', $industries_key);
     }
