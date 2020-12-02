@@ -69,11 +69,10 @@
                         <div class="col-md-12 selectContainer">
                             <div class="input-group">
                                 <select name="industry" class="form-control selectpicker">
-                                <option value="">Choose</option>
-                                <option value="car">Car racing</option>
-                                <option value="automobile">Automobile</option>
-                                <option value="photography">Photography</option>
-                                <option selected value="{{$userdata->industry}}">{{$userdata->industry}}</option>
+                                     @foreach ($industries_select as $indusrty_key =>$industry_name)
+                                        {{$selected = ($indusrty_key==$userdata->industry) ? "selected" : ""}}
+                                        <option value="{{$indusrty_key}}" {{$selected}}>{{$industry_name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                     </div>

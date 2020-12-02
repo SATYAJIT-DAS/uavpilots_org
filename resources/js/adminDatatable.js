@@ -91,8 +91,8 @@ $(function() {
             url: "approve-user",
             data: { approve_id: userid },
             success: function(data) {
-                pendingtable.ajax.reload();
-                userListtable.ajax.reload();
+                pendingtable.ajax.reload(null, false);
+                userListtable.ajax.reload(null, false);
             }
         });
     });
@@ -108,8 +108,8 @@ $(function() {
             url: "unpublish-user",
             data: { unpublish_id: userid },
             success: function(data) {
-                pendingtable.ajax.reload();
-                userListtable.ajax.reload();
+                pendingtable.ajax.reload(null, false);
+                userListtable.ajax.reload(null, false);
             }
         });
     });
@@ -127,7 +127,7 @@ $(function() {
                 url: "remove-user",
                 data: { delete_id: userid },
                 success: function(data) {
-                    pendingtable.ajax.reload();
+                    pendingtable.ajax.reload(null, false);
                 }
             });
         }
@@ -146,7 +146,7 @@ $(function() {
                 url: "remove-user",
                 data: { delete_id: userid },
                 success: function(data) {
-                    userListtable.ajax.reload();
+                    userListtable.ajax.reload(null, false);
                 }
             });
         }

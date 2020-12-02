@@ -188,8 +188,8 @@ $(function () {
         approve_id: userid
       },
       success: function success(data) {
-        pendingtable.ajax.reload();
-        userListtable.ajax.reload();
+        pendingtable.ajax.reload(null, false);
+        userListtable.ajax.reload(null, false);
       }
     });
   });
@@ -207,8 +207,8 @@ $(function () {
         unpublish_id: userid
       },
       success: function success(data) {
-        pendingtable.ajax.reload();
-        userListtable.ajax.reload();
+        pendingtable.ajax.reload(null, false);
+        userListtable.ajax.reload(null, false);
       }
     });
   });
@@ -229,7 +229,7 @@ $(function () {
           delete_id: userid
         },
         success: function success(data) {
-          pendingtable.ajax.reload();
+          pendingtable.ajax.reload(null, false);
         }
       });
     }
@@ -251,7 +251,7 @@ $(function () {
           delete_id: userid
         },
         success: function success(data) {
-          userListtable.ajax.reload();
+          userListtable.ajax.reload(null, false);
         }
       });
     }

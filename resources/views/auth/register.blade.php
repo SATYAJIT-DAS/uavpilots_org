@@ -67,10 +67,10 @@
                 <label for="">Industry:</label>
                   <div class="input-group mb-3">
                     <select class="custom-select" id="industry" name="industry" required>
-                      <option selected value="">Choose...</option>
-                      <option value="car">Car racing</option>
-                      <option value="automobile">Automobile</option>
-                      <option value="photography">Photography</option>
+                        <option selected value="">Choose...</option>
+                        @foreach ($industries_select as $indusrty_key =>$industry_name)
+                            <option value="{{$indusrty_key}}">{{$industry_name}}</option>
+                        @endforeach
                     </select>
                   </div>
 

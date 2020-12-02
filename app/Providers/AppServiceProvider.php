@@ -23,6 +23,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // =[]
+        $industries_key = [
+            "car" => "Car Racing",
+            "agriculture" => "Agriculture",
+            "film" => "Film",
+            "automobile " => "Auto Mobile",
+            "photography " => "Photography",
+        ];
+        view()->share('industries_select', $industries_key);
     }
 }
