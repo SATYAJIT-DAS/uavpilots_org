@@ -32,6 +32,7 @@
                                 <th>Country</th>
                                 <th>User Name</th>
                                 <th>Email</th>
+                                <th>Email Verification</th>
                                 <th>Link</th>
                                 <th>Action</th>
                             </tr>

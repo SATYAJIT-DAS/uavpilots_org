@@ -10,11 +10,15 @@ $(function() {
             { data: "country", name: "country" },
             { data: "fullname", name: "fullname" },
             { data: "email", name: "email" },
+            {
+                data: "email_verification_status",
+                name: "email_verification_status"
+            },
             { data: "link", name: "link" },
             { data: "action", name: "action" }
         ],
         scrollX: true,
-        pagingType: "full",
+        pagingType: "full_numbers",
         initComplete: function() {
             var column = this.api().column(1);
             var select = $(
@@ -54,7 +58,7 @@ $(function() {
             { data: "action", name: "action" }
         ],
         scrollX: true,
-        pagingType: "full",
+        pagingType: "full_numbers",
         initComplete: function() {
             var column = this.api().column(1);
             var select = $(

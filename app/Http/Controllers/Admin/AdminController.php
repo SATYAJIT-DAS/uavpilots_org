@@ -84,7 +84,11 @@ class AdminController extends Controller
                 $link = '<a target="_blank" href="' .  route('profile', $usersdata->username) . '">' . $usersdata->username . '</a>';
                 return $link;
             })
-            ->rawColumns(['link', 'action', 'fullname'])
+            ->addColumn('email_verification_status', function ($usersdata) {
+                $actionBtn = (is_null($usersdata->email_verified_at)) ? '<span class="text-danger">Not Verified</span>' : '<span class="text-success">Verified</span>';
+                return $actionBtn;
+            })
+            ->rawColumns(['link', 'action', 'fullname', 'email_verification_status'])
             ->make(true);
     }
     public function activeUserData()
