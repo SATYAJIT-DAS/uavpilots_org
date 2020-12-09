@@ -1,12 +1,12 @@
 <section class="footer">
-    <footer class="page-footer font-small pt-4 bg-secondary">
-    <div class="pt-5">
+    <footer class="page-footer font-small  bg-secondary">
+    <div class="pt-3" >
         @guest
-            <ul class="list-unstyled list-inline text-center py-2">
+            <ul class="list-unstyled list-inline text-center ">
                 <li class="list-inline-item">
                     <h5 class="mb-1 text-light">Register for free</h5>
                 </li>
-                <li class="list-inline-item pb-5">
+                <li class="list-inline-item ">
                     <a href="{{ route('register') }}" class="btn w-sm mb-1 btn-rounded btn-outline-success">Sign up!</a>
                 </li>
             </ul>
@@ -43,7 +43,7 @@
           </ul>
     </div>
 
-    <div class="footer-copyright text-center py-3">© {{ date('Y') }} Copyright:
+    <div class="footer-copyright text-center py-1">© {{ date('Y') }} Copyright:
     <a class="text-white" href="{{ route('homepage') }}"> {{config('app.name')}}</a>
     </div>
   </footer>

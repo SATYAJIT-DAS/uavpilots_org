@@ -28,7 +28,22 @@ body{
         }
     }
 }
-
+.vh-90{
+    height: 90vh!important;
+}
+.banner-img{
+    height: 100vh!important;
+}
+.logo{
+    height: 100px!important;
+    width: auto;
+}
+.right-div{
+    overflow: hidden;
+    outline: none;
+    height: 100vh;
+    overflow-y: scroll;
+}
 
 .table-striped{
     tbody{
@@ -148,5 +163,11 @@ table{
     }
     .table-secondary, .table-secondary > th, .table-secondary > td{
         background-color: #1c233f!important;
+    }
+}
+#DataTables_Table_0_length{
+    display: flex;
+    label:first-child{
+        display: none;
     }
 }

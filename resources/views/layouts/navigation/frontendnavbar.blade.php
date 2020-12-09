@@ -1,15 +1,15 @@
 <section class="navigation ">
     <nav class="navbar navbar-expand-lg navbar-light bg-white navbar-fixed-top">
-        <a class="navbar-brand font-weight-bold" href="{{ route('homepage') }}">{{config('app.name')}}</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navtoggle" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        {{-- <a class="navbar-brand font-weight-bold" href="{{ route('homepage') }}">{{config('app.name')}}</a> --}}
+        {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navtoggle" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navtoggle">
-            <ul class="nav navbar-menu navbar-menu-user order-1 order-lg-2">
+        </button> --}}
+        {{-- <div class="collapse navbar-collapse" id="navtoggle"> --}}
+            <ul class="nav navbar-menu mx-auto navbar-menu-user order-1 order-lg-2">
                 <li class="nav-item dropdown">
-                        <a class="nav-link"  href="{{ route('homepage') }}">
-                           Home
-                        </a>
+                    <a class="nav-link"  href="{{ route('homepage') }}">
+                        Home
+                    </a>
                 </li>
                 @auth
                     <li class="nav-item dropdown">
@@ -85,6 +85,6 @@
             <!-- Navarbar toggle btn -->
 
         </ul>
-        </div>
+        {{-- </div> --}}
     </nav>
 </section>
