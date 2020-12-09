@@ -426,7 +426,7 @@ body {
 
 .logo {
   height: 100px !important;
-  width: auto;
+  width: auto !important;
 }
 
 .right-div {
@@ -569,6 +569,7 @@ table {
 
 #DataTables_Table_0_length {
   display: flex;
+  flex-wrap: wrap;
 }
 
 #DataTables_Table_0_length label:first-child {

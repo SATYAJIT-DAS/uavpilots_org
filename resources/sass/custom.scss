@@ -36,7 +36,7 @@ body{
 }
 .logo{
     height: 100px!important;
-    width: auto;
+    width: auto!important;
 }
 .right-div{
     overflow: hidden;
@@ -167,6 +167,7 @@ table{
 }
 #DataTables_Table_0_length{
     display: flex;
+    flex-wrap: wrap;
     label:first-child{
         display: none;
     }
