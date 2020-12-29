@@ -1,6 +1,6 @@
 @include('layouts.global_layout.header')
-@if(!Request::is('/'))
-    @include('layouts.navigation.frontendnavbar')
+@if(!Request::is('/')  )
+    {{-- @include('layouts.navigation.frontendnavbar') --}}
 @endif
 
 @yield('content')

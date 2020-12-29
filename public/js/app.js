@@ -314,11 +314,18 @@ __webpack_require__(/*! ./updateProfilePicture */ "./resources/js/updateProfileP
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+$.fn.dataTable.ext.buttons.reload = {
+  text: "Reload",
+  action: function action(e, dt, node, config) {
+    dt.ajax.reload();
+  }
+};
 $(function () {
   $(".user-data").DataTable({
     processing: true,
     serverSide: true,
     ajax: "userdata",
+    buttons: ["reload"],
     columns: [{
       data: "name",
       name: "name"

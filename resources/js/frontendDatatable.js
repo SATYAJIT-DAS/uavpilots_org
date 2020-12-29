@@ -1,8 +1,15 @@
+$.fn.dataTable.ext.buttons.reload = {
+    text: "Reload",
+    action: function(e, dt, node, config) {
+        dt.ajax.reload();
+    }
+};
 $(function() {
     $(".user-data").DataTable({
         processing: true,
         serverSide: true,
         ajax: "userdata",
+        buttons: ["reload"],
         columns: [
             { data: "name", name: "name" },
             { data: "industry", name: "industry" },

@@ -584,6 +584,10 @@ table {
   .banner-img {
     height: 50vh !important;
   }
+
+  .right-div {
+    height: auto !important;
+  }
 }
 
 .avatar-wrapper {

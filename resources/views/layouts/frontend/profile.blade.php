@@ -1,20 +1,21 @@
 @extends('layouts.frontend.frontend_layout')
 @section('content')
-<div class="page-content page-container" id="page-content">
-    <div class="padding">
-        <div class="container">
+{{-- <div class="page-content page-container" id="page-content">
+    <div class="padding"> --}}
+        <div class="container-fluid">
             <div class="row">
+            <div class="col">
                 <div class="col">
                     <div class="block p-md-3 ">
                         @if (empty($userdata->user_image))
-                            <img src="{{ asset('img/talking-3.jpg') }}" class="img-fluid" alt="Responsive image">
+                            <img src="{{ asset('img/talking-3.jpg') }}" class="img-fluid banner-img" alt="Responsive image">
                         @else
-                            <img src="{{asset('storage/users/images/'.$userdata->user_image)}}" class="img-fluid" alt="Responsive image">
+                            <img src="{{asset('storage/users/images/'.$userdata->user_image)}}" class="img-fluid banner-img" alt="Responsive image">
                         @endif
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="col right-div">
                 <div class="col-12 mt-5">
                 <h1 class="font-40 text-center">{{$userdata->first_name.' '.$userdata->last_name }}</h1>
                 </div>
@@ -60,9 +61,10 @@
                     </ul>
                 </div>
             </div>
+            </div>
         </div>
-    </div>
+    {{-- </div>
 
-</div>
+</div> --}}
 
 @endsection
