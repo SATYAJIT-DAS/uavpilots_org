@@ -59,25 +59,50 @@
 
 
 
-                        <div class="form-group"> 
-                                <h4>Industry list</h4>
-
-                                <table class="table table-hover industry-list">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Industry</th>
-                                            <th>Action</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                                <button class="btn btn-primary">&#8853; Add new industry</button>
-                        </div>
+                        <!-- <div class="form-group"> 
+                                
+                        </div> -->
                         <button type="submit" class="btn btn-primary mb-4">Update Settings</button>
                     </form>
+
+
+
+                    <div class="container mt-4">
+
+
+                        <h4>Industry list</h4>
+
+                        <table class="table table-hover industry-list">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Industry</th>
+                                    <th>Action</th> 
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        
+
+                    </div>
+                    
+                    <div class="container mt-5">
+
+                        <h2 class="mt-3">Add new industry:</h2>
+    
+                        <div class="form-group">
+                            <label>Industry Name:</label>
+                            <input type="text" name="industry_name" class="form-control" id="industry_name">
+                        </div>
+                        <button class="btn btn-primary add-new-industry"> Add new industry</button>
+
+                    </div>
+                    
+                   
+                    
+
                     </div>
                 </div>
             </div>

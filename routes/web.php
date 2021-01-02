@@ -36,7 +36,8 @@ Route::prefix('/admin')->namespace("Admin")->group(function () {
         Route::post('page-settings', 'SettingsController@updatePageSettings')->name('admin.updatepagesettings');
 
         Route::get('industry-list', 'SettingsController@industryList')->name('admin.industrylist');
-        Route::post('remove-industry', 'AdminController@removeIndustry')->name('admin.removeindustry');
+        Route::post('add-new-industry', 'SettingsController@addNewIndustry')->name('admin.addnewindustry');
+        Route::post('remove-industry', 'SettingsController@removeIndustry')->name('admin.removeindustry');
 
         Route::post('check-current-pwd', 'AdminController@chkCurrentPwd');
         Route::post('update-pwd', 'AdminController@updatePwd');

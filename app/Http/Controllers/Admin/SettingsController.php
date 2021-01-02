@@ -46,32 +46,39 @@ class SettingsController extends Controller
 
     public function industryList()
     {
-        $industryList = getIndustry();
+        $industryList = Industry::get();
+
         return Datatables::of($industryList)
             ->addColumn('action', function ($industryList) {
                 
-                $action .=
-                    '<button type="button"  class="btn btn-danger m-2 delete-button"  id="' . $industryList->id . '"> Delete</a>';
+                $action =
+                    '<button type="button"  class="btn btn-danger m-2 delete-indsutry-button"  id="' . $industryList->id . '"> Delete</a>';
                 $action .= '<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">';
                 return $action;
             })
-           
             ->rawColumns(['action'])
             ->make(true);
     }
 
 
 
-    public function getIndustry()
+    
+
+
+    public function addNewIndustry(Request $request)
     {
-        $industryList = Industry::get();
-        return $industryList;
+        $request = $_POST['industry_name'];
+        
+        $newIndustry = Industry::insert([
+                'industry_name' => $request,
+            ]);
+        return $newIndustry;
     }
 
      public function removeIndustry()
     {
         $data = $_POST['delete_id'];
-        Indsutry::where('id', $data)->delete();
+        Industry::where('id', $data)->delete();
         // UserData::where('user_id', $data)->delete();
     }
 

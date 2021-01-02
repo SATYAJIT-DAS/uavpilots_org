@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Models\Industry;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,14 +24,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // =[]
-        $industries_key = [
-            "car" => "Car Racing",
-            "agriculture" => "Agriculture",
-            "film" => "Film",
-            "automobile" => "Auto Mobile",
-            "photography" => "Photography",
-        ];
-        view()->share('industries_select', $industries_key);
+        
+
+        $industry_names = Industry::get()->pluck('industry_name')->toArray();;
+        view()->share('industry_names', $industry_names);
     }
 }
