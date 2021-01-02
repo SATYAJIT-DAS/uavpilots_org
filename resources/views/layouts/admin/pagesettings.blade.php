@@ -1,5 +1,9 @@
+
+
 @extends('layouts.admin.admin_layout')
 @section('content')
+
+
 
 
 <!-- ############ Content START-->
@@ -18,7 +22,7 @@
             <div class="card">
                  <x-alert/>
                 <div id="content-body">
-                    <div class="p-3 p-md-5">
+                    <div class="p-3 p-md-5"> 
                     <form class="" role="form" action="{{ route('admin.updatepagesettings') }}" enctype="multipart/form-data" method="POST" >
                         @csrf
                         <label>Change Homepage Banner</label>
@@ -31,6 +35,15 @@
                             </div>
                             <input class="file-upload" class="form-control" type="file" accept="image/*" name="home_image" id="image" hidden/>
                         </div>
+
+                        <div class="form-group">
+                            <label>Home Page Description</label>
+                           <!--  <input  name="home_description" type="url" class="form-control" placeholder="Enter Facebook link" value="{{!empty($pageSettings->home_description)?$pageSettings->home_description :''}}" > -->
+
+                            <textarea class="form-control" id="home_description" rows="3" name="home_description" required>{{!empty($pageSettings->home_description)?$pageSettings->home_description :''}}</textarea>
+                        </div>
+
+
                         <div class="form-group">
                             <label>Facebook Link</label>
                             <input  name="fb_link" type="url" class="form-control" placeholder="Enter Facebook link" value="{{!empty($pageSettings->fb_link)?$pageSettings->fb_link :''}}" >
@@ -42,6 +55,26 @@
                         <div class="form-group">
                             <label>Instagram Link</label>
                             <input  name="instragram_link" type="url" class="form-control" placeholder="Enter Instragram link" value="{{!empty($pageSettings->instragram_link)?$pageSettings->instragram_link:''}}">
+                        </div>
+
+
+
+                        <div class="form-group"> 
+                                <h4>Industry list</h4>
+
+                                <table class="table table-hover industry-list">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Industry</th>
+                                            <th>Action</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                                <button class="btn btn-primary">&#8853; Add new industry</button>
                         </div>
                         <button type="submit" class="btn btn-primary mb-4">Update Settings</button>
                     </form>

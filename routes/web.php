@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 // use App\Http\Controllers\User\UserController;
 
-/*
+/* 
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -34,6 +34,10 @@ Route::prefix('/admin')->namespace("Admin")->group(function () {
         Route::get('settings', 'AdminController@settings')->name('admin.settings');
         Route::get('page-settings', 'SettingsController@index')->name('admin.pagesettings');
         Route::post('page-settings', 'SettingsController@updatePageSettings')->name('admin.updatepagesettings');
+
+        Route::get('industry-list', 'SettingsController@industryList')->name('admin.industrylist');
+        Route::post('remove-industry', 'AdminController@removeIndustry')->name('admin.removeindustry');
+
         Route::post('check-current-pwd', 'AdminController@chkCurrentPwd');
         Route::post('update-pwd', 'AdminController@updatePwd');
         Route::post('update-profile-img', 'AdminController@updateProfileimg')->name('admin.profile.img');

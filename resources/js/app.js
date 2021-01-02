@@ -7,6 +7,7 @@
 // require("./bootstrap");
 require("./frontendDatatable");
 require("./adminDatatable");
+require("./industryDatatable");
 require("./updateProfilePicture");
 // require("./approveDecline");
 

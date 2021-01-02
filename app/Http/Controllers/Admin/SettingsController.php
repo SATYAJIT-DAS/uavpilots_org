@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\PageSetting;
+use App\Models\Industry;
 use App\Http\Requests\UploadAdminProfile;
 use App\Models\UserData;
 use App\Models\User;
@@ -31,6 +32,7 @@ class SettingsController extends Controller
     {
 
         $pageSettings = $this->getPageSettings();
+        // $industryList = $this->getIndustry();
         $adminDetails = AdminController::getAdminDetails();
         return view('layouts.admin.pagesettings', compact('pageSettings', 'adminDetails'));
     }
@@ -40,6 +42,41 @@ class SettingsController extends Controller
         $pageSettings = PageSetting::get()->first();
         return $pageSettings;
     }
+
+
+    public function industryList()
+    {
+        $industryList = getIndustry();
+        return Datatables::of($industryList)
+            ->addColumn('action', function ($industryList) {
+                
+                $action .=
+                    '<button type="button"  class="btn btn-danger m-2 delete-button"  id="' . $industryList->id . '"> Delete</a>';
+                $action .= '<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">';
+                return $action;
+            })
+           
+            ->rawColumns(['action'])
+            ->make(true);
+    }
+
+
+
+    public function getIndustry()
+    {
+        $industryList = Industry::get();
+        return $industryList;
+    }
+
+     public function removeIndustry()
+    {
+        $data = $_POST['delete_id'];
+        Indsutry::where('id', $data)->delete();
+        // UserData::where('user_id', $data)->delete();
+    }
+
+
+    
 
 
 
@@ -100,13 +137,14 @@ class SettingsController extends Controller
             if ($request->hasFile('home_image')) {
                 $home_image = $request->file('home_image');
                 $filename = time() . '.' . $home_image->getClientOriginalExtension();
-                $home_image->storeAs('img/', $filename, 'page_image');
+                $home_image->storeAs('img/homepage', $filename, 'page_image');
                 $data = PageSetting::create([
                     'home_image' => $filename,
                 ]);
             }
             PageSetting::where('id', $data->id)
                 ->update([
+                    'home_description' => $request->home_description,
                     'fb_link' => $request->fb_link,
                     'twitter_link' => $request->twitter_link,
                     'instragram_link' => $request->instragram_link,
@@ -128,6 +166,7 @@ class SettingsController extends Controller
             }
             PageSetting::where('id', $pageSettings->id)
                 ->update([
+                    'home_description' => $request->home_description,
                     'fb_link' => $request->fb_link,
                     'twitter_link' => $request->twitter_link,
                     'instragram_link' => $request->instragram_link,

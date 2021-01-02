@@ -1,4 +1,4 @@
-$(function() {
+$(function() { 
     var pendingtable = $(".waiting-approval-user-data").DataTable({
         processing: true,
         serverSide: true,
