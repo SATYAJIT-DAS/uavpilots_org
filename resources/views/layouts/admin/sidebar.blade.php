@@ -2,7 +2,7 @@
 <div id="aside" class="page-sidenav no-shrink bg-light nav-dropdown fade" aria-hidden="true">
   <div class="sidenav h-100 modal-dialog bg-light">
     <!-- sidenav top -->
-    <div class="navbar">
+    <div class="navbar" style="justify-content: center">
       <!-- brand -->
       <a href="{{route('admin.dashboard')}}" class="navbar-brand ">
         {{-- <svg width="32" height="32" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
