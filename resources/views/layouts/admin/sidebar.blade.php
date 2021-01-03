@@ -12,7 +12,7 @@
         </svg> --}}
         <img src="{{asset('/img/droners.png')}}" alt="" srcset="">
         <!-- <img src="{{asset('basik_img/img/logo.png') }}" alt="..."> -->
-    <span class="hidden-folded d-inline l-s-n-1x ">{{config('app.name')}}</span>
+    {{-- <span class="hidden-folded d-inline l-s-n-1x ">{{config('app.name')}}</span> --}}
       </a>
       <!-- / brand -->
     </div>
