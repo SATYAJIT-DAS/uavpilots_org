@@ -4,7 +4,7 @@
     <div class="padding"> --}}
         <div class="container-fluid">
             <div class="row">
-            <div class="col">
+            <div class="col-12 col-md-6">
                 <div class="col">
                     <div class="block p-md-3 ">
                         @if (empty($userdata->user_image))
@@ -15,7 +15,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col right-div">
+            <div class="col-12 col-md-6 ">
                 <div class="col-12 mt-5">
                 <h1 class="font-40 text-center">{{$userdata->first_name.' '.$userdata->last_name }}</h1>
                 </div>
@@ -40,21 +40,21 @@
                         @if (!empty($userdata->fb_link))
                             <li class="list-inline-item">
                                 <a class="font-22" target="_blank" href="{{$userdata->fb_link}}">
-                                    <i data-feather='facebook'></i>
+                                    <i data-feather='facebook' style="width: 40px; height: 40px"></i>
                                 </a>
                             </li>
                         @endif
                         @if (!empty($userdata->twitter_link))
                             <li class="list-inline-item">
                                 <a class="font-22" target="_blank" href="{{$userdata->twitter_link}}">
-                                    <i data-feather='twitter'></i>
+                                    <i data-feather='twitter' style="width: 40px; height: 40px"></i>
                                 </a>
                             </li>
                         @endif
                         @if (!empty($userdata->instagram_link))
                             <li class="list-inline-item">
                                 <a class="font-22" target="_blank" href="{{$userdata->instagram_link}}">
-                                    <i data-feather='instagram'></i>
+                                    <i data-feather='instagram' style="width: 40px; height: 40px"></i>
                                 </a>
                             </li>
                         @endif

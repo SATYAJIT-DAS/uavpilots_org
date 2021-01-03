@@ -24,9 +24,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        
 
-        $industry_names = Industry::get()->pluck('industry_name')->toArray();;
+
+        $industry_names = Industry::get()->pluck('industry_name')->toArray();
         view()->share('industry_names', $industry_names);
     }
 }
