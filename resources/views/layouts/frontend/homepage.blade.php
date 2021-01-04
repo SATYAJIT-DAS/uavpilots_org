@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-12 col-md-6 right-div">
                     <div class="d-flex justify-content-center pt-5">
-                        <img src="{{asset('img/droners.jpeg')}}" class="img-fluid logo" alt="Droners me">
+                        <img src="{{asset('/img/droners.png')}}" alt="" srcset="">
                     </div>
                     <div class="d-flex justify-content-center py-5">
                         <p>
