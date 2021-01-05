@@ -22,9 +22,17 @@
                         <img style="height: 50px" src="{{asset('/img/droners.png')}}" alt="" srcset="">
                     </div>
                     <div class="d-flex justify-content-center py-5">
+                        @if (!empty($pageSetting->home_description))
                         <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat enim quod quo ullam minus tempora, aspernatur voluptas non maxime? Ducimus sequi esse vitae impedit quae iure accusantium fugit aliquam modi.
+                            {!!$pageSetting->home_description!!}
                         </p>
+
+                        @else
+                            <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat enim quod quo ullam minus tempora, aspernatur voluptas non maxime? Ducimus sequi esse vitae impedit quae iure accusantium fugit aliquam modi.
+                            </p>
+                        @endif
+
                     </div>
                     @include('layouts.navigation.frontendnavbar')
                     <section class="user-dataTable mb-5">
