@@ -1,6 +1,13 @@
 @extends('layouts.app')
 @section('content')
-
+<script type="text/javascript">
+      var onloadCallback = function() {
+        grecaptcha.render('html_element', {
+          'sitekey' : '{{ config('services.recaptcha.sitekey') }}'
+        });
+        // console.log('{{ config('services.recaptcha.sitekey') }}');
+      };
+    </script>
 <div class="flex">
   <div class="w-xl w-auto-sm mx-auto py-5">
     <div class="p-4 d-flex flex-column h-100">
@@ -118,12 +125,18 @@
                 <label for="">Your Instagram Profile Link(optional)</label>
                 <input type="url" class="form-control"  name="instagram_link" data-parsley-type="url">
             </div>
-            <button type="submit" class="btn btn-primary mb-4"> {{ __('Sign Up') }}</button>
+            <div id="html_element"></div>
+            {{-- <div class="g-recaptcha" data-sitekey={{ config('services.recaptcha.secret') }}></div> --}}
+            <button type="submit" class="btn btn-primary mb-4 mt-2"> {{ __('Sign Up') }}</button>
           </form>
         </div>
       </div>
     </div>
   </div>
 </div>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
+</script>
+
 @endsection
 

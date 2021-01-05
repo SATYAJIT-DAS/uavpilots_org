@@ -17,7 +17,7 @@ class CreatePageSettingsTable extends Migration
             $table->id();
             $table->string('page_name')->nullable();
             $table->string('home_image')->nullable();
-            $table->string('home_description')->nullable();
+            $table->longText('home_description')->nullable();
             $table->string('profile_default_image')->nullable();
             $table->string('fb_link')->nullable();
             $table->string('twitter_link')->nullable();
