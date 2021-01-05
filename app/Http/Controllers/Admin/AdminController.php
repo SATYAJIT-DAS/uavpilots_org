@@ -12,6 +12,7 @@ use App\Models\User;
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
@@ -48,6 +49,20 @@ class AdminController extends Controller
     {
         $data = $request->all();
         Admin::UpdatePassword($data['current_pwd'], $data['new_pwd'], $data['confirm_new_pwd'], $request);
+        return redirect()->back();
+    }
+    public function updateEmail(Request $request)
+    {
+        $data = $request->all();
+        $validator = Validator::make($request->all(), [
+            'email' => 'unique:admins',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+        Admin::UpdateEmail($data['email'], $request);
         return redirect()->back();
     }
     public function updateProfileimg(UploadAdminProfile $request)

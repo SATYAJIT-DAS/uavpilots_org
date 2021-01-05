@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 // use App\Http\Controllers\User\UserController;
 
-/* 
+/*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -41,6 +41,7 @@ Route::prefix('/admin')->namespace("Admin")->group(function () {
 
         Route::post('check-current-pwd', 'AdminController@chkCurrentPwd');
         Route::post('update-pwd', 'AdminController@updatePwd');
+        Route::post('update-email', 'AdminController@updateEmail');
         Route::post('update-profile-img', 'AdminController@updateProfileimg')->name('admin.profile.img');
         Route::get('logout', 'AdminController@logout')->name('admin.logout');
         Route::get('pending-user-data', 'AdminController@pendingUserData')->name('admin.pendinguserdata');

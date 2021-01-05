@@ -78,6 +78,26 @@
                 <button type="submit" class="btn btn-primary mt-2">Update</button>
               </form>
             </div>
+            <div class="d-flex align-items-center px-4 py-3 b-t pointer" data-toggle="collapse" data-parent="#accordion" data-target="#c_3">
+              <i data-feather="mail"></i>
+              <div class="px-3">
+                <div>Change Email</div>
+              </div>
+              <div class="flex"></div>
+              <div>
+                <i data-feather="chevron-right"></i>
+              </div>
+            </div>
+            <div class="collapse p-4" id="c_3">
+            <form role="form" method="POST" action="{{url('/admin/update-email')}}">
+              @csrf
+                <div class="form-group">
+                  <label>New Email</label>
+                  <input type="email"  name="email" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary mt-2">Update</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

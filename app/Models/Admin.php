@@ -69,6 +69,12 @@ class Admin extends Authenticatable
             $request->session()->flash('error', 'Current password Doesn\'t match');
         }
     }
+    public static  function UpdateEmail($newemail, $request)
+    {
+
+        Admin::where('id', Auth::guard('admin')->user()->id)->update(['email' => $newemail]);
+        $request->session()->flash('success', 'Email updated');
+    }
 
     public static function uploadimage($image)
     {
